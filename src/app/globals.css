@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors pulled from the live nexus.us computed styles, 2026-08-13 — not the branding PDF guess */
+  --color-base-bg: #ffffff;
+  --color-base-text: #262122;
+
+  --color-accent: #00609c;
+  --color-accent-dark: #004d7d;
+  --color-accent-light: #3380b0;
+
+  --color-primary: #565657;
+  --color-primary-dark: #454546;
+  --color-primary-light: #787879;
+
+  --color-secondary: #f4f4f4;
+  --color-secondary-dark: #c4c4c4;
+  --color-secondary-light: #f7f7f7;
+
+  --color-tertiary: #262122;
+  --color-tertiary-dark: #1f1b1c;
+  --color-tertiary-light: #524e4f;
+
+  --font-heading: var(--font-oswald), sans-serif;
+  --font-body: var(--font-merriweather), serif;
+
+  --radius-lg: 20px;
+  --radius-md: 10px;
+  --radius-sm: 5px;
+
+  --shadow-elevated: 0px 10px 30px -15px rgba(0, 0, 0, 0.75);
+  --shadow-soft: 0px 4px 16px 0px rgba(0, 0, 0, 0.09);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-base-bg: var(--color-base-bg);
+  --color-base-text: var(--color-base-text);
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-accent-light: var(--color-accent-light);
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-dark: var(--color-secondary-dark);
+  --color-secondary-light: var(--color-secondary-light);
+  --color-tertiary: var(--color-tertiary);
+  --color-tertiary-dark: var(--color-tertiary-dark);
+  --color-tertiary-light: var(--color-tertiary-light);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --radius-lg: var(--radius-lg);
+  --radius-md: var(--radius-md);
+  --radius-sm: var(--radius-sm);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-base-bg);
+  color: var(--color-base-text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
 }
