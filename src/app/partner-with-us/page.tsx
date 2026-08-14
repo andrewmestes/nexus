@@ -1,24 +1,28 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { PageHero, Section, SectionHeading, Button, CardGrid, Card, Quote } from "@/components/ui";
+import { Section, SectionHeading, Button, CardGrid, Card, Quote, ImageSection, TextureSection } from "@/components/ui";
+import { CalledToPlantBand } from "@/components/shared-sections";
 
 export const metadata: Metadata = { title: "Partner With Us" };
 
 export default function PartnerWithUsPage() {
   return (
     <>
-      <PageHero
-        title="Partner With Us"
-        subtitle="Achieve Your Church-Planting Vision in Your Region and Beyond"
-      >
-        <p className="mx-auto max-w-2xl text-white/70">
+      <Section className="text-center">
+        <h1 className="mx-auto max-w-3xl font-heading text-4xl font-bold leading-tight sm:text-5xl">
+          Partner With Us
+        </h1>
+        <p className="mx-auto mt-5 max-w-2xl text-lg opacity-80">
+          Achieve Your Church-Planting Vision in Your Region and Beyond
+        </p>
+        <p className="mx-auto mt-3 max-w-2xl opacity-70">
           Our partnership provides strategic guidance and peace of mind, so you
           can continue launching church-planting movements throughout North
           America.
         </p>
-      </PageHero>
+      </Section>
 
-      <Section>
+      <TextureSection>
         <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
           <div>
             <h2 className="font-heading text-3xl font-bold">
@@ -31,25 +35,36 @@ export default function PartnerWithUsPage() {
               resources, you might wonder, &ldquo;How can we get this
               done?&rdquo;
             </p>
-            <p className="mt-4 text-primary">
-              Nexus is here to help. We desire to see every region across the
-              nation saturated with healthy new churches making disciples. We
-              work alongside existing churches, ministries, and networks like
-              yours to provide a proven path to launch multiplying churches
-              with confidence.
-            </p>
-            <div className="mt-6">
-              <Button href="/contact-us">Contact Us</Button>
-            </div>
           </div>
-          <Quote
-            quote="Nexus was an answer to our many questions. It gave us tools to assess potential church planters and the coaching needed for our planters to succeed. NPEA has seen much value in the relationship with Nexus and cherishes the many friendships that will last a lifetime!"
-            attribution="Craig Faussett, NPEA Board Member & Coordinator"
-          />
+          <div className="rounded-[20px] bg-white p-8 shadow-soft">
+            <Quote
+              quote="Nexus was an answer to our many questions. It gave us tools to assess potential church planters and the coaching needed for our planters to succeed. NPEA has seen much value in the relationship with Nexus and cherishes the many friendships that will last a lifetime!"
+              attribution="Craig Faussett, NPEA Board Member & Coordinator"
+            />
+          </div>
+        </div>
+      </TextureSection>
+
+      <Section tone="accent" className="text-center">
+        <p className="mx-auto max-w-2xl text-lg">
+          Nexus is here to help. We desire to see every region across the
+          nation saturated with healthy new churches making disciples. We work
+          alongside existing churches, ministries, and networks like yours to
+          provide a proven path to launch multiplying churches with
+          confidence.
+        </p>
+        <div className="mt-6">
+          <Button href="/contact-us" variant="light">Contact Us</Button>
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <ImageSection image="/img/LUK05612-copy-scaled-e1674494573168-1024x683__largepreview__.webp" overlay="light" className="text-center">
+        <h2 className="font-heading text-3xl font-bold">
+          We&rsquo;ve Seen So Much Value in Our Relationship With Nexus
+        </h2>
+      </ImageSection>
+
+      <Section>
         <SectionHeading sub="When you partner with Nexus, you're joining a family of networks and congregations who have discovered that we're better together! It's our desire to help you achieve your church-planting and disciple-making vision in your region and beyond.">
           Partner With Nexus
         </SectionHeading>
@@ -79,14 +94,14 @@ export default function PartnerWithUsPage() {
         </div>
       </Section>
 
-      <Section>
+      <ImageSection image="/img/yt-bg-KdeqA3aTnBY.jpg" overlay="dark">
         <Quote
           quote="Our goal is to encourage leaders, train disciples, and plant new churches. This is hard work and not to be taken lightly. Therefore, it is absolutely essential for potential church-planting couples to go through an assessment and training before they are released and sent out to plant. The assessment process and the church planting training Nexus offers is by far some of the best experiences and tools we have participated in preparing future church planters to make disciples and plant reproducing churches."
           attribution="Sean Thomé, Executive Director – Expand NW"
         />
-      </Section>
+      </ImageSection>
 
-      <Section tone="secondary">
+      <TextureSection>
         <SectionHeading sub="Together, we can ensure your network and church plants stay focused on what's most important.">
           Let&rsquo;s Multiply Our Kingdom Impact
         </SectionHeading>
@@ -100,7 +115,7 @@ export default function PartnerWithUsPage() {
             <Card title="Plan and Launch More Multiplying Churches With Confidence" body="God has entrusted each of us with a vision. Let's allow God to show us that we're better together." />
           </CardGrid>
         </div>
-      </Section>
+      </TextureSection>
 
       <Section>
         <SectionHeading>Key Partners</SectionHeading>
@@ -168,19 +183,30 @@ export default function PartnerWithUsPage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <Section tone="accent">
         <SectionHeading>We Can Do More Together</SectionHeading>
         <div className="mt-6 flex justify-center">
-          <Button href="/contact-us">Contact Us</Button>
+          <Button href="/contact-us" variant="light">Contact Us</Button>
         </div>
         <div className="mt-10">
           <CardGrid cols={3}>
-            <Card title="Grow Your Network of Churches" body="Gain peace of mind as we assist—not replace—your network in multiplying churches in your region." />
-            <Card title="Optimize Your Planting Process" body="Our proven system positions you for success, gaining confidence while enabling your network to launch more life-giving churches." />
-            <Card title="Fulfill God's Mission For You" body="With Nexus, you'll have the support you need to plant the church that God has called you to plant." />
+            <div className="rounded-[20px] bg-white/10 p-7 text-center">
+              <h3 className="font-heading text-lg font-semibold">Grow Your Network of Churches</h3>
+              <p className="mt-2 text-sm text-white/85">Gain peace of mind as we assist—not replace—your network in multiplying churches in your region.</p>
+            </div>
+            <div className="rounded-[20px] bg-white/10 p-7 text-center">
+              <h3 className="font-heading text-lg font-semibold">Optimize Your Planting Process</h3>
+              <p className="mt-2 text-sm text-white/85">Our proven system positions you for success, gaining confidence while enabling your network to launch more life-giving churches.</p>
+            </div>
+            <div className="rounded-[20px] bg-white/10 p-7 text-center">
+              <h3 className="font-heading text-lg font-semibold">Fulfill God&rsquo;s Mission For You</h3>
+              <p className="mt-2 text-sm text-white/85">With Nexus, you&rsquo;ll have the support you need to plant the church that God has called you to plant.</p>
+            </div>
           </CardGrid>
         </div>
       </Section>
+
+      <CalledToPlantBand image="/img/josue-michel-e1IkcNp-UZQ-unsplash-scaled-e1674494394961__largepreview__.webp" />
     </>
   );
 }

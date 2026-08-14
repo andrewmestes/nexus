@@ -1,42 +1,43 @@
 import Image from "next/image";
-import { Section, SectionHeading, Button, Quote, Card, CardGrid } from "@/components/ui";
-import { NextStepsBand } from "@/components/shared-sections";
+import { Section, SectionHeading, Button, Quote, Card, CardGrid, ImageSection, TextureSection } from "@/components/ui";
+import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
 export default function HomePage() {
   return (
     <>
-      <div className="relative overflow-hidden bg-tertiary text-white">
+      {/* Full-bleed video hero — no text overlay, matches the live site's logo-reveal-into-footage treatment */}
+      <div className="relative h-[70vh] min-h-[420px] overflow-hidden bg-black">
         <video
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
+          className="absolute inset-0 h-full w-full object-cover"
           src="/video/Nexus-Website-Background-compressed.mp4"
           autoPlay
           muted
           loop
           playsInline
         />
-        <div className="relative mx-auto max-w-[1145px] px-5 py-24 text-center sm:py-32">
-          <h1 className="mx-auto max-w-3xl font-heading text-4xl font-bold leading-tight sm:text-5xl">
-            Plant a Church today and leave a lasting impact tomorrow.
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-white/80">
-            Nexus is a church-planting organization built to help pastors and
-            church leaders stand in the center of their calling and multiply
-            disciples in their community and beyond.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-semibold uppercase tracking-wide text-white/70">
-            <span>Plant Thriving Churches</span>
-            <span>Receive Long-Term Leader Care</span>
-            <span>Multiply Kingdom Impact</span>
-          </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button href={PCO.interestForm}>Get Started</Button>
-            <Button href="/donate" variant="outline">
-              Donate
-            </Button>
-          </div>
-        </div>
       </div>
+
+      {/* Headline band — solid accent blue, matches rgb(0,96,156) on the live site */}
+      <Section tone="accent" className="text-center">
+        <h1 className="mx-auto max-w-3xl font-heading text-4xl font-bold leading-tight sm:text-5xl">
+          Plant a Church today and leave a lasting impact tomorrow.
+        </h1>
+        <p className="mx-auto mt-6 max-w-2xl text-white/85">
+          Nexus is a church-planting organization built to help pastors and
+          church leaders stand in the center of their calling and multiply
+          disciples in their community and beyond.
+        </p>
+      </Section>
+
+      {/* 3 pillars over photo background */}
+      <ImageSection image="/img/Screen-Shot-2022-06-14-at-11.36.06-AM__largepreview__.webp" className="text-center">
+        <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-lg font-heading font-semibold">
+          <span>Plant Thriving Churches</span>
+          <span>Receive Long-Term Leader Care</span>
+          <span>Multiply Kingdom Impact</span>
+        </div>
+      </ImageSection>
 
       <Section>
         <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
@@ -72,11 +73,11 @@ export default function HomePage() {
                 href: "/partner-with-us",
               },
             ].map((card) => (
-              <div key={card.q} className="rounded-[20px] bg-secondary p-6 shadow-soft">
+              <div key={card.q} className="rounded-[20px] bg-tertiary p-6 text-white shadow-soft">
                 <p className="font-heading font-semibold">{card.q}</p>
                 <a
                   href={card.href}
-                  className="mt-3 inline-block text-sm font-semibold uppercase tracking-wide text-accent"
+                  className="mt-3 inline-block text-sm font-semibold uppercase tracking-wide text-accent-light"
                 >
                   {card.cta} →
                 </a>
@@ -86,20 +87,44 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <ImageSection image="/img/yt-bg-ShCVvQbQBDk.jpg" overlay="dark">
         <Quote
           quote="I have not been a part of anything this good before… genuinely. Nexus has been my fortress, my respite, in so many ways."
           attribution="Willie Tryon, Lead Pastor – Forge Christian Church"
         />
-      </Section>
+      </ImageSection>
 
-      <NextStepsBand
-        heading="Plant the Church God Placed in Your Heart"
-        sub="Together, we can provide the resources to make that dream a reality."
-      />
+      <TextureSection>
+        <SectionHeading sub="Together, we can provide the resources to make that dream a reality.">
+          Plant the Church God Placed in Your Heart
+        </SectionHeading>
+        <div className="mt-10 grid gap-8 sm:grid-cols-2">
+          <div className="rounded-[20px] bg-white p-8 text-center shadow-soft">
+            <h3 className="font-heading text-xl font-semibold">
+              Schedule a Discovery Call
+            </h3>
+            <p className="mt-3 text-sm text-primary">
+              Together, we&rsquo;ll discuss your vision and dream for your future
+              church.
+            </p>
+          </div>
+          <div className="rounded-[20px] bg-white p-8 text-center shadow-soft">
+            <h3 className="font-heading text-xl font-semibold">
+              Complete Our Readiness Assessment
+            </h3>
+            <p className="mt-3 text-sm text-primary">
+              When you launch with Nexus, you become part of the family. We curate
+              a proven process, including an audit, custom coaching, and ongoing
+              care to position you and your team for success.
+            </p>
+          </div>
+        </div>
+      </TextureSection>
 
-      <Section tone="secondary">
-        <SectionHeading>Programs Designed With Church Planters In Mind</SectionHeading>
+      <Section>
+        <h2 className="text-center font-heading text-3xl font-bold">
+          Programs Designed With Church Planters In Mind
+        </h2>
         <div className="mt-10">
           <CardGrid cols={3}>
             <Card
@@ -136,13 +161,13 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section tone="accent" className="text-center">
+      <ImageSection image="/img/yt-bg-1dGMs4hhcVA.jpg" className="text-center" overlay="dark">
         <p className="text-5xl font-heading font-bold">80+</p>
         <p className="mt-2 text-lg">Churches Planted</p>
         <p className="mt-1 text-sm text-white/80">
           Advancing the Gospel together throughout North America
         </p>
-      </Section>
+      </ImageSection>
 
       <Section>
         <div className="mx-auto grid max-w-4xl gap-8 sm:grid-cols-[auto_1fr] sm:items-center">
@@ -180,33 +205,39 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
-        <div className="grid gap-10 sm:grid-cols-2">
-          <Quote
-            image="/img/unnamed__largepreview__.webp"
-            heading="Nexus Reminded Us That We Still Mattered"
-            quote="If it hadn't been for Nexus, I'm not sure I'd still be in ministry. Nexus affirmed that we still mattered and that we still had something to give."
-            attribution="Robi Brust, Executive Director of Arkansas Church Planting Network"
-          />
-          <Quote
-            image="/img/Craig-Faussett-1-150x150__mediumsquare__.webp"
-            heading="Nexus Answered Our Many Questions"
-            quote="Nexus was an answer to our many questions. It gave us tools to assess potential church planters and the coaching needed for our planters to succeed. NPEA has seen much value in the relationship with Nexus and cherishes the many friendships that will last a lifetime!"
-            attribution="Craig Fausett, NPEA Board Member & Coordinator"
-          />
+      <ImageSection image="/img/yt-bg-4V1dC_eoCwg.jpg" overlay="dark">
+        <Quote
+          heading="Nexus Reminded Us That We Still Mattered"
+          quote="If it hadn't been for Nexus, I'm not sure I'd still be in ministry. Nexus affirmed that we still mattered and that we still had something to give."
+          attribution="Robi Brust, Executive Director of Arkansas Church Planting Network"
+        />
+      </ImageSection>
+
+      <Section tone="accent-light" className="text-center">
+        <h2 className="font-heading text-3xl font-bold">
+          Plant Your Next Church With Confidence
+        </h2>
+        <p className="mx-auto mt-4 max-w-xl text-white/85">
+          Together with Nexus, you&rsquo;ll plant a church today designed to leave a
+          lasting impact in your community tomorrow.
+        </p>
+        <div className="mt-8">
+          <Button href="/contact-us" variant="light">
+            Contact Us
+          </Button>
         </div>
       </Section>
 
-      <Section className="text-center">
-        <SectionHeading
-          sub="The heartbeat of Nexus is to not only plant churches but to truly care for those called to that difficult task. We are a family that helps coach, train, mentor, and guide planters along the journey to plant a life-giving and multiplying church."
-        >
+      <TextureSection className="text-center">
+        <SectionHeading sub="The heartbeat of Nexus is to not only plant churches but to truly care for those called to that difficult task. We are a family that helps coach, train, mentor, and guide planters along the journey to plant a life-giving and multiplying church.">
           Testimonies From Nexus Planters
         </SectionHeading>
         <div className="mt-8">
           <Button href="/church-planter-pathway">Church Planter Pathway</Button>
         </div>
-      </Section>
+      </TextureSection>
+
+      <CalledToPlantBand image="/img/Screen-Shot-2021-06-22-at-12.47.28-PM.png" />
     </>
   );
 }

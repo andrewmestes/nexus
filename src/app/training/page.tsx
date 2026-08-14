@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { PageHero, Section, SectionHeading, Button, Quote, CardGrid, Card } from "@/components/ui";
-import { NextStepsBand } from "@/components/shared-sections";
+import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
+import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
 export const metadata: Metadata = { title: "Training" };
@@ -11,12 +11,14 @@ const PROGRAMS = [
     body: "This 3-phase training is a proven process that equips church planters with the support and education you need to plant the church God has placed in their heart. The Art of The Start ensures church planters like you are ready for Kingdom impact.\n\nYou will gain: Clarity around your calling, guidance on how to develop disciple-makers, insight into crafting a clear and compelling vision, and so much more!",
     quote: "We love working with Nexus because they truly have a kingdom perspective! Their open-handed and open-hearted approach to starting churches all over the United States makes it a joy to partner with them. Their encouragement and support has been a huge help as we plant churches in Florida.",
     attribution: "Jeff Swearingen, Director – Florida Church Planters",
+    image: "/img/89045610_3415462501814081_2877505041801936896_n-e1674834388919.jpg",
   },
   {
     title: "Leadership Summit (ThinkNEXT)",
     body: "Twice a year, we converge to equip and encourage one another on this journey in ministry. ThinkNEXT allows you to connect with like-minded leaders who can guide you in your mission to make strong disciples. We're better together — and ThinkNEXT helps us continue to dream, plan, and lead ourselves, our families, and our churches.",
     quote: "I could see how in church planting you could feel very alone if you weren't careful. Nexus has done a good job of removing that possibility for me.",
     attribution: "Steve Bolin, Lead Minister – Thrive Church",
+    tone: "accent" as const,
   },
   {
     title: "Discipleship Training (The Bonhoeffer Project)",
@@ -31,64 +33,62 @@ const PROGRAMS = [
     quote: "Andrew (the leader of this project) is an effective, relatable developer of people. He is the best kind of coach—the kind who meets you where you are and successfully guides you forward. Andrew is a clear communicator who is both client-focused and Jesus-led. I trust him with my friends.",
     attribution: "Jessie Cruickshank, Author of Ordinary Discipleship",
     href: "/the-clarity-project",
+    tone: "secondary" as const,
   },
 ];
 
 export default function TrainingPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Training"
-        title="The Training You Need to See Your Disciple-Making Vision Come to Life"
-        subtitle="Our training is designed to help you launch and lead a life-giving, multiplying church."
-      />
+      <TextureSection>
+        <SectionHeading sub="Our training is designed to help you launch and lead a life-giving, multiplying church.">
+          The Training You Need to See Your Disciple-Making Vision Come to Life
+        </SectionHeading>
+      </TextureSection>
 
-      <Section>
+      <Section tone="accent">
         <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
           <div>
-            <h2 className="font-heading text-3xl font-bold">
+            <h2 className="font-heading text-2xl font-bold">
               Fulfill the Vision God Placed in Your Heart
             </h2>
-            <p className="mt-4 text-primary">
+            <p className="mt-4 text-white/85">
               Planting a church is incredibly rewarding — though rarely an easy
               process. So many people are behind you, but few understand the
               unique dynamics of leading and growing something from scratch.
-              That&rsquo;s what our training is designed for. We help you avoid
-              common pitfalls of church planting, step into your God-given
-              leadership potential, and craft a plan to move forward and plant
-              your life-giving church.
+              That&rsquo;s what our training is designed for.
             </p>
             <div className="mt-6">
-              <Button href={PCO.interestForm}>Start Your Journey</Button>
+              <Button href={PCO.interestForm} variant="light">
+                Start Your Journey
+              </Button>
             </div>
           </div>
-          <Quote
-            quote="(Nexus) was huge from day one! Just to have that ongoing partnership in ministry and that extra motivating factor to keep pressing on, to keep doing, to keep growing, to keep thinking."
-            attribution="Mike Moser, Lead Pastor – Connection Christian Church"
-          />
+          <blockquote className="rounded-[20px] bg-white/10 p-8">
+            <p className="font-heading text-lg italic">
+              &ldquo;(Nexus) was huge from day one! Just to have that ongoing
+              partnership in ministry and that extra motivating factor to keep
+              pressing on, to keep doing, to keep growing, to keep
+              thinking.&rdquo;
+            </p>
+            <footer className="mt-4 text-sm text-white/70">
+              Mike Moser, Lead Pastor – Connection Christian Church
+            </footer>
+          </blockquote>
         </div>
       </Section>
 
-      {PROGRAMS.map((p, i) => (
-        <Section key={p.title} tone={i % 2 === 0 ? "secondary" : "light"}>
-          <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
-            <div>
-              <h2 className="font-heading text-2xl font-bold">{p.title}</h2>
-              {p.body.split("\n\n").map((para) => (
-                <p key={para.slice(0, 20)} className="mt-4 text-primary">
-                  {para}
-                </p>
-              ))}
-              {p.href && (
-                <div className="mt-6">
-                  <Button href={p.href}>Learn More</Button>
-                </div>
-              )}
-            </div>
-            <Quote quote={p.quote} attribution={p.attribution} />
-          </div>
-        </Section>
-      ))}
+      {PROGRAMS.map((p) =>
+        p.image ? (
+          <ImageSection key={p.title} image={p.image}>
+            <ProgramBlock p={p} light />
+          </ImageSection>
+        ) : (
+          <Section key={p.title} tone={p.tone ?? "light"}>
+            <ProgramBlock p={p} light={p.tone === "accent"} />
+          </Section>
+        )
+      )}
 
       <Section className="text-center">
         <div className="flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm font-semibold uppercase tracking-wide text-accent">
@@ -102,12 +102,13 @@ export default function TrainingPage() {
         />
       </Section>
 
-      <NextStepsBand
-        heading="Continue Your Journey in Ministry With Confidence"
-        sub="Whether you're a church network leader or a church planter, the next step beyond our trainings is partnering with Nexus to launch your next church planting movement."
-      />
+      <TextureSection>
+        <SectionHeading sub="Whether you're a church network leader or a church planter, the next step beyond our trainings is partnering with Nexus to launch your next church planting movement.">
+          Continue Your Journey in Ministry With Confidence
+        </SectionHeading>
+      </TextureSection>
 
-      <Section>
+      <ImageSection image="/img/Q7A2553-scaled-e1674764647470-2.webp">
         <SectionHeading>Nexus Is Here to Guide You in Your Church Planting Mission</SectionHeading>
         <div className="mt-10">
           <CardGrid cols={3}>
@@ -116,7 +117,43 @@ export default function TrainingPage() {
             <Card title="Access Insight From Experienced Leaders" body="You'll have the support you've been looking for as you learn from church leaders with decades of experience." />
           </CardGrid>
         </div>
-      </Section>
+      </ImageSection>
+
+      <CalledToPlantBand image="/img/Screen-Shot-2021-06-22-at-8.45.14-AM-e1624374780313.png" />
     </>
+  );
+}
+
+function ProgramBlock({
+  p,
+  light,
+}: {
+  p: (typeof PROGRAMS)[number];
+  light?: boolean;
+}) {
+  return (
+    <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
+      <div>
+        <h2 className={`font-heading text-2xl font-bold ${light ? "" : ""}`}>{p.title}</h2>
+        {p.body.split("\n\n").map((para) => (
+          <p key={para.slice(0, 20)} className={`mt-4 ${light ? "text-white/85" : "text-primary"}`}>
+            {para}
+          </p>
+        ))}
+        {p.href && (
+          <div className="mt-6">
+            <Button href={p.href} variant={light ? "light" : "primary"}>
+              Learn More
+            </Button>
+          </div>
+        )}
+      </div>
+      <blockquote className={`rounded-[20px] p-8 ${light ? "bg-white/10" : "bg-secondary"}`}>
+        <p className="font-heading text-lg italic">&ldquo;{p.quote}&rdquo;</p>
+        <footer className={`mt-4 text-sm ${light ? "text-white/70" : "text-primary"}`}>
+          {p.attribution}
+        </footer>
+      </blockquote>
+    </div>
   );
 }

@@ -1,31 +1,94 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { ReactNode } from "react";
+import type { ReactNode, CSSProperties } from "react";
 
 /* ------------------------------------------------------------------ layout */
 
-type Tone = "light" | "secondary" | "dark" | "accent";
+type Tone = "light" | "secondary" | "dark" | "accent" | "accent-light";
 
 const TONE: Record<Tone, string> = {
   light: "bg-base-bg text-base-text",
   secondary: "bg-secondary text-base-text",
   dark: "bg-tertiary text-white",
   accent: "bg-accent text-white",
+  "accent-light": "bg-accent-light text-white",
 };
+
+/**
+ * Photo-background sections, matching the live site's pattern of full-bleed
+ * imagery behind text (hero bands, quotes, CTA strips). A soft dark scrim is
+ * layered under the content so white text stays legible regardless of the
+ * source photo's own tonal range — the live site relies on consistently
+ * dark-toned photography to get the same effect.
+ */
+export function ImageSection({
+  children,
+  image,
+  className = "",
+  id,
+  overlay = "medium",
+}: {
+  children: ReactNode;
+  image: string;
+  className?: string;
+  id?: string;
+  overlay?: "light" | "medium" | "dark";
+}) {
+  const scrim = {
+    light: "from-black/40 to-black/40",
+    medium: "from-black/55 to-black/65",
+    dark: "from-black/70 to-black/80",
+  }[overlay];
+  return (
+    <section
+      id={id}
+      className={`relative bg-cover bg-center text-white ${className}`}
+      style={{ backgroundImage: `url(${image})` }}
+    >
+      <div className={`absolute inset-0 bg-gradient-to-b ${scrim}`} />
+      <div className="relative mx-auto max-w-[1145px] px-5 py-16 sm:py-20">
+        {children}
+      </div>
+    </section>
+  );
+}
+
+/** Subtle tiled texture the live site uses on light sections — barely-there diagonal lines. */
+export function TextureSection({
+  children,
+  className = "",
+  id,
+}: {
+  children: ReactNode;
+  className?: string;
+  id?: string;
+}) {
+  return (
+    <section
+      id={id}
+      className={`bg-base-bg text-base-text ${className}`}
+      style={{ backgroundImage: "url(/img/funky-lines.png)", backgroundRepeat: "repeat" }}
+    >
+      <div className="mx-auto max-w-[1145px] px-5 py-16 sm:py-20">{children}</div>
+    </section>
+  );
+}
 
 export function Section({
   children,
   className = "",
   tone = "light",
   id,
+  style,
 }: {
   children: ReactNode;
   className?: string;
   tone?: Tone;
   id?: string;
+  style?: CSSProperties;
 }) {
   return (
-    <section id={id} className={`${TONE[tone]} ${className}`}>
+    <section id={id} className={`${TONE[tone]} ${className}`} style={style}>
       <div className="mx-auto max-w-[1145px] px-5 py-16 sm:py-20">{children}</div>
     </section>
   );
@@ -87,11 +150,13 @@ export function Button({
   children,
   variant = "primary",
   external,
+  style,
 }: {
   href: string;
   children: ReactNode;
   variant?: "primary" | "outline" | "light";
   external?: boolean;
+  style?: CSSProperties;
 }) {
   const styles = {
     primary: "bg-accent text-white hover:bg-accent-dark",
@@ -105,13 +170,13 @@ export function Button({
   const isExternal = external ?? /^https?:\/\//.test(href);
   if (isExternal) {
     return (
-      <a href={href} className={cls} target="_blank" rel="noopener noreferrer">
+      <a href={href} className={cls} style={style} target="_blank" rel="noopener noreferrer">
         {children}
       </a>
     );
   }
   return (
-    <Link href={href} className={cls}>
+    <Link href={href} className={cls} style={style}>
       {children}
     </Link>
   );

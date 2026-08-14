@@ -5,7 +5,6 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { UpcomingEventsPopup } from "@/components/upcoming-events-popup";
-import { CalledToPlantBand } from "@/components/shared-sections";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -68,7 +67,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         <SiteHeader />
         <main className="flex-1">{children}</main>
-        <CalledToPlantBand />
         <SiteFooter />
         <UpcomingEventsPopup />
       </body>

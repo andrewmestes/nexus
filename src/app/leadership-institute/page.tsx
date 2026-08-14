@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { PageHero, Section, SectionHeading, Button, CardGrid, Card, Quote } from "@/components/ui";
+import { Section, SectionHeading, Button, CardGrid, Card, Quote, ImageSection, TextureSection } from "@/components/ui";
+import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
 export const metadata: Metadata = { title: "Nexus Leadership Institute" };
@@ -8,38 +9,45 @@ export const metadata: Metadata = { title: "Nexus Leadership Institute" };
 export default function LeadershipInstitutePage() {
   return (
     <>
-      <PageHero
-        title="Equipping Leaders for a Lifetime of Ministry"
-        subtitle="The Nexus Leadership Institute is an intentional effort to mentor, train, and equip emerging leaders. This 2-year leadership cohort, in partnership with local churches, helps to develop and train emerging leaders."
-      />
-
       <Section className="text-center">
+        <h1 className="mx-auto max-w-3xl font-heading text-4xl font-bold leading-tight sm:text-5xl">
+          Equipping Leaders for a Lifetime of Ministry
+        </h1>
+        <p className="mx-auto mt-5 max-w-2xl text-lg opacity-80">
+          The Nexus Leadership Institute is an intentional effort to mentor,
+          train, and equip emerging leaders. This 2-year leadership cohort, in
+          partnership with local churches, helps to develop and train emerging
+          leaders.
+        </p>
+      </Section>
+
+      <ImageSection image="/img/surface-8HPLpr3hebU-unsplash-1-scaled.jpg" className="text-center">
         <SectionHeading sub="Everyone is called and used by God to advance the Gospel. We're here to help you accelerate your growth as a spiritual leader! We know the harvest is plentiful and the workers are few, so we pray diligently for more workers (Luke 10:2), but we are also deliberately investing in the lives of future leaders (2 Tim. 2:2).">
           Do you feel God calling you to something greater?
         </SectionHeading>
         <div className="mt-6">
-          <Button href={PCO.nliCategory}>Start Your Journey</Button>
+          <Button href={PCO.nliCategory} variant="light">Start Your Journey</Button>
         </div>
-      </Section>
+      </ImageSection>
 
-      <Section tone="secondary" className="text-center">
+      <Section tone="accent" className="text-center">
         <SectionHeading sub="Are you looking for the next step in training emerging leaders? Not every church has the capacity or resources to launch a full-scale residency for those interested in deeper development. That's where we can help! In partnership with Nexus, you'll receive guidance that will help you develop your leaders, and your leaders will be exposed to pastors all across the country living out the mission of God.">
           Church Leaders!
         </SectionHeading>
         <div className="mt-6">
-          <Button href={PCO.nliCategory}>Start Your Journey</Button>
+          <Button href={PCO.nliCategory} variant="light">Start Your Journey</Button>
         </div>
       </Section>
 
-      <Section>
+      <ImageSection image="/img/priscilla-du-preez-Q7wGvnbuwj0-unsplash-scaled__largepreview__.webp">
         <SectionHeading>Who is this for?</SectionHeading>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-primary">
+        <p className="mx-auto mt-4 max-w-2xl text-center text-white/85">
           Leadership development is not just for senior leaders and potential
           church planters. We&rsquo;re here to equip men and women in any
           ministry at every level of church leadership! Great candidates
           include but are not limited to:
         </p>
-        <ul className="mx-auto mt-6 max-w-xl list-inside list-disc space-y-2 text-primary">
+        <ul className="mx-auto mt-6 max-w-xl list-inside list-disc space-y-2 text-white/85">
           <li>College or graduate students interested in ministry.</li>
           <li>Individuals sensing God&rsquo;s calling to vocational ministry.</li>
           <li>Current church leaders interested in church planting.</li>
@@ -48,12 +56,12 @@ export default function LeadershipInstitutePage() {
             competencies as ministry leaders.
           </li>
         </ul>
-        <p className="mt-4 text-center text-sm italic opacity-70">
+        <p className="mt-4 text-center text-sm italic text-white/60">
           *All applicants must be 18+ yrs old.
         </p>
-      </Section>
+      </ImageSection>
 
-      <Section tone="secondary">
+      <TextureSection>
         <SectionHeading>How It Works</SectionHeading>
         <p className="mx-auto mt-4 max-w-2xl text-center text-primary">
           This 2-year journey is delivered in partnership with Nexus through
@@ -66,7 +74,7 @@ export default function LeadershipInstitutePage() {
             <Card title="Course Work" body="Leaders will be assigned books, online courses, and other materials as they grow in several key areas of leadership and ministry." />
           </CardGrid>
         </div>
-      </Section>
+      </TextureSection>
 
       <Section>
         <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
@@ -162,7 +170,7 @@ export default function LeadershipInstitutePage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <Section tone="secondary" id="two-emphases">
         <SectionHeading sub="To create movement, leaders need to develop both discipling and directional leadership skills.">
           Two Emphases in Leadership Development
         </SectionHeading>
@@ -184,16 +192,16 @@ export default function LeadershipInstitutePage() {
         </p>
       </Section>
 
-      <Section>
+      <ImageSection image="/img/LUK05612-copy-scaled-e1674494573168-1024x683__largepreview__.webp" overlay="dark">
         <Quote
           quote="I cannot thank the people at Nexus enough. Your training prepares leaders to communicate a clear and compelling vision. The care you provide church planters is inspiring… Thank you for partnering with us and helping us to grow people and God's Kingdom in our region."
           attribution="Chad Halbach, Director – Christian Evangelistic Mission"
         />
-      </Section>
+      </ImageSection>
 
-      <Section tone="dark" className="text-center">
+      <Section className="text-center">
         <h2 className="font-heading text-3xl font-bold">2 Years of Challenging Content</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-white/80">
+        <p className="mx-auto mt-3 max-w-2xl text-primary">
           NLI is organized to be a 2-year rotating curriculum. The content in
           both years stands alone so that leaders can join at the beginning of
           any year!
@@ -218,14 +226,16 @@ export default function LeadershipInstitutePage() {
         </CardGrid>
       </Section>
 
-      <Section tone="secondary" className="text-center">
+      <Section tone="accent" className="text-center">
         <SectionHeading sub="The Nexus Leadership Institute is a unique and collaborative opportunity that's waiting for you! Now is the time to take your next step as a leader.">
           Are You Ready to Grow as a Leader?
         </SectionHeading>
         <div className="mt-6">
-          <Button href={PCO.nliCategory}>Get Started</Button>
+          <Button href={PCO.nliCategory} variant="light">Get Started</Button>
         </div>
       </Section>
+
+      <CalledToPlantBand image="/img/IMG_7905-scaled-e1674238483735__largepreview__.webp" />
     </>
   );
 }

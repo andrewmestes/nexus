@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { PageHero, Section, SectionHeading, Button, ButtonRow, Quote, CardGrid, Card } from "@/components/ui";
+import { PageHero, Section, SectionHeading, Button, ButtonRow, Quote, CardGrid, ImageSection } from "@/components/ui";
+import { CalledToPlantBand } from "@/components/shared-sections";
 import { TIDYCAL_DISCOVERY, VISION_CLARITY } from "@/lib/links";
 
 export const metadata: Metadata = { title: "The Clarity Project" };
@@ -92,18 +93,30 @@ export default function ClarityProjectPage() {
         <Button href={TIDYCAL_DISCOVERY}>Schedule A Discovery Call</Button>
       </PageHero>
 
-      <Section className="text-center">
+      <ImageSection image="/img/screenshot-clarity-1__largepreview__.webp" className="text-center">
         <SectionHeading sub="Through proven frameworks like Vision Frame, God Dreams, Younique, and team-building tools like Working Genius, we help ministry and marketplace leaders:">
           The Clarity Project exists to cut through the noise.
         </SectionHeading>
         <div className="mt-10">
           <CardGrid cols={3}>
-            <Card title="Discover" body="Discover their God-given calling and organizational identity" />
-            <Card title="Align" body="Align teams around a shared vision and language" />
-            <Card title="Focus" body="Focus on what matters most and create measurable results" />
+            <div className="rounded-[20px] bg-white/10 p-7">
+              <h3 className="font-heading text-xl font-semibold">Discover</h3>
+              <p className="mt-2 text-sm text-white/85">Discover their God-given calling and organizational identity</p>
+            </div>
+            <div className="rounded-[20px] bg-white/10 p-7">
+              <h3 className="font-heading text-xl font-semibold">Align</h3>
+              <p className="mt-2 text-sm text-white/85">Align teams around a shared vision and language</p>
+            </div>
+            <div className="rounded-[20px] bg-white/10 p-7">
+              <h3 className="font-heading text-xl font-semibold">Focus</h3>
+              <p className="mt-2 text-sm text-white/85">Focus on what matters most and create measurable results</p>
+            </div>
           </CardGrid>
         </div>
-        <p className="mx-auto mt-10 max-w-xl text-primary">
+      </ImageSection>
+
+      <Section tone="dark" className="text-center">
+        <p className="mx-auto max-w-xl">
           With clarity, you&rsquo;ll move from spinning wheels to making
           progress. From trying harder to leading smarter. From uncertainty to
           confidence.
@@ -115,24 +128,29 @@ export default function ClarityProjectPage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <ImageSection image="/img/172019-abstract-triangle-png-free-photo-1.png" overlay="light">
         <SectionHeading>Paths to Clarity</SectionHeading>
         <div className="mt-10">
           <CardGrid cols={3}>
             {PATHS.map((p) => (
-              <Card key={p.title} title={p.title} body={p.body} href={p.href} image={p.image}>
+              <div key={p.title} className="rounded-[20px] bg-white/95 p-7 text-base-text shadow-soft">
+                <h3 className="font-heading text-xl font-semibold">{p.title}</h3>
+                <p className="mt-2 text-sm opacity-80">{p.body}</p>
                 <ul className="mt-3 list-inside list-disc space-y-1 text-sm opacity-80">
                   {p.bullets.map((b) => (
                     <li key={b}>{b}</li>
                   ))}
                 </ul>
-              </Card>
+                <a href={p.href} target="_blank" rel="noopener noreferrer" className="mt-5 inline-block text-sm font-semibold uppercase tracking-wide text-accent">
+                  Learn More →
+                </a>
+              </div>
             ))}
           </CardGrid>
         </div>
-      </Section>
+      </ImageSection>
 
-      <Section>
+      <Section style={{ backgroundColor: "#cbcccc" }}>
         <SectionHeading sub="The Clarity Project is built on years of experience in church planting, leadership coaching, and disciple-making churches. Our process integrates proven tools like the Vision Frame, Younique, The 6 Types of Working Genius, and The 4 Disciplines of Execution to deliver lasting results for leaders in various contexts.">
           Trusted by Churches and Leaders Nationwide
         </SectionHeading>
@@ -143,7 +161,7 @@ export default function ClarityProjectPage() {
         </div>
       </Section>
 
-      <Section tone="dark" className="text-center">
+      <ImageSection image="/img/Screen-Shot-2021-06-22-at-8.45.14-AM-e1624374780313.png" className="text-center">
         <h2 className="font-heading text-3xl font-bold">
           Clarity isn&rsquo;t optional. It&rsquo;s the foundation of
           leadership.
@@ -151,13 +169,13 @@ export default function ClarityProjectPage() {
         <p className="mt-3 text-white/80">Stop guessing. Start leading with confidence.</p>
         <ButtonRow>
           <div className="mt-8 flex flex-wrap justify-center gap-4 w-full">
-            <Button href={TIDYCAL_DISCOVERY}>Schedule A Discovery Call</Button>
+            <Button href={TIDYCAL_DISCOVERY} variant="light">Schedule A Discovery Call</Button>
             <Button href={VISION_CLARITY.home} variant="outline">
               Visit VisionClarity.org for More Details
             </Button>
           </div>
         </ButtonRow>
-      </Section>
+      </ImageSection>
 
       <Section>
         <SectionHeading>FAQ</SectionHeading>
@@ -170,6 +188,8 @@ export default function ClarityProjectPage() {
           ))}
         </div>
       </Section>
+
+      <CalledToPlantBand image="/img/Screen-Shot-2021-06-22-at-8.45.14-AM-e1624374780313__largepreview__.webp" />
     </>
   );
 }

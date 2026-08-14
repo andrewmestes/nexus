@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { PageHero, Section, SectionHeading, CardGrid, Card, VideoCard } from "@/components/ui";
+import { Section, SectionHeading, CardGrid, Card, VideoCard, ImageSection, TextureSection } from "@/components/ui";
+import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO, SOCIAL } from "@/lib/links";
 
 export const metadata: Metadata = { title: "Training Resources" };
@@ -53,12 +54,14 @@ const PODCASTS = [
 export default function ResourcesPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Training Resources"
-        title="On Demand Resources to Help Church Leaders Multiply Their Kingdom Impact"
-      />
+      <TextureSection className="text-center">
+        <h1 className="mx-auto max-w-3xl font-heading text-4xl font-bold leading-tight sm:text-5xl">
+          On Demand Resources to Help Church Leaders Multiply Their Kingdom
+          Impact
+        </h1>
+      </TextureSection>
 
-      <Section tone="secondary">
+      <Section>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-2xl font-bold">
             Preaching &amp; Teaching Jesus&rsquo; Discipleship Gospel eBook
@@ -83,12 +86,12 @@ export default function ResourcesPage() {
         </div>
       </Section>
 
-      <Section>
+      <Section tone="accent">
         <SectionHeading sub="Tools and resource training videos from The Art of the Start.">
           Training Videos
         </SectionHeading>
         <p className="mt-2 text-center text-sm">
-          <a href={SOCIAL.youtube} target="_blank" rel="noopener noreferrer" className="font-semibold text-accent">
+          <a href={SOCIAL.youtube} target="_blank" rel="noopener noreferrer" className="font-semibold text-white underline">
             Visit our YouTube Channel for More →
           </a>
         </p>
@@ -101,7 +104,7 @@ export default function ResourcesPage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <Section>
         <SectionHeading sub="Listen to planters share their experience on a number of topics related to launching their church.">
           Planter Testimony Videos
         </SectionHeading>
@@ -114,7 +117,7 @@ export default function ResourcesPage() {
         </div>
       </Section>
 
-      <Section>
+      <Section tone="accent">
         <SectionHeading>Recommended Books</SectionHeading>
         <div className="mt-10">
           <CardGrid cols={4}>
@@ -125,7 +128,7 @@ export default function ResourcesPage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <Section>
         <SectionHeading>Nexus Church Planting Podcast</SectionHeading>
         <p className="mx-auto mt-4 max-w-xl text-center text-primary">
           Learn more about advancing the gospel from church leaders who have
@@ -149,9 +152,9 @@ export default function ResourcesPage() {
         </div>
       </Section>
 
-      <Section tone="dark" className="text-center">
+      <ImageSection image="/img/Q7A2553-scaled-e1674764647470-2.webp" className="text-center">
         <h2 className="font-heading text-3xl font-bold">Stay Connected</h2>
-        <p className="mx-auto mt-3 max-w-xl text-white/80">
+        <p className="mx-auto mt-3 max-w-xl text-white/85">
           Join our email list to learn more about our latest training,
           coaching, and resources for church planters.
         </p>
@@ -161,7 +164,23 @@ export default function ResourcesPage() {
         >
           Join Our Email List
         </a>
+      </ImageSection>
+
+      <Section tone="secondary" className="text-center">
+        <h2 className="font-heading text-3xl font-bold">Plant The Church Within You</h2>
+        <p className="mx-auto mt-3 max-w-xl text-primary">
+          Together with Nexus, you&rsquo;ll plant a church today designed to
+          leave a lasting impact in your community tomorrow.
+        </p>
+        <a
+          href={PCO.interestForm}
+          className="mt-8 inline-block rounded-[10px] bg-accent px-7 py-4 text-sm font-semibold uppercase tracking-wide text-white hover:bg-accent-dark"
+        >
+          Get Started
+        </a>
       </Section>
+
+      <CalledToPlantBand image="/img/Greg-Teaching-ThinkNEXT-e1624372694557__largepreview__.webp" />
     </>
   );
 }

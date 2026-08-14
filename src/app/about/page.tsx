@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { PageHero, Section, SectionHeading, Button, ButtonRow, CardGrid, Card } from "@/components/ui";
+import { Section, SectionHeading, Button, ButtonRow, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
 import { TeamGrid, type TeamMember } from "@/components/team";
-import { PlantTheChurchBand } from "@/components/shared-sections";
+import { CalledToPlantBand } from "@/components/shared-sections";
 
 export const metadata: Metadata = { title: "About" };
 
@@ -107,12 +107,13 @@ const TEAM: TeamMember[] = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero title="About Nexus" />
-
       <Section>
         <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
           <div>
-            <h2 className="font-heading text-3xl font-bold">Our Story</h2>
+            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+              About Nexus
+            </p>
+            <h1 className="font-heading text-3xl font-bold">Our Story</h1>
             <p className="mt-4 text-primary">
               Over the past two decades, we have helped more than 80 church
               leaders plant life-giving, multiplying churches. Our goal is to
@@ -154,13 +155,22 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <ImageSection image="/img/LUK05612-copy-scaled-e1674494573168.jpg">
         <CardGrid cols={3}>
-          <Card title="Our Mission" body="We start disciple-making communities that start disciple-making communities! If we make healthy disciples who continue to make other disciples, these faith communities will soon be starting even more faith communities." />
-          <Card title="Our Vision" body="To launch church-planting movements in all 50 states. Our end game is not to create one monolithic church-planting entity but to launch multiple networks that voluntarily collaborate and partner to launch more churches in their regions." />
-          <Card title="Our Heritage" body="Nexus' leadership comes from the networks of churches known as the Restoration Movement. In keeping with the history of this movement, we commit to embracing unity with all like-minded congregations and other Christian networks and groups." />
+          <div className="rounded-[20px] bg-white/10 p-7">
+            <h3 className="font-heading text-xl font-semibold">Our Mission</h3>
+            <p className="mt-3 text-sm leading-relaxed text-white/85">We start disciple-making communities that start disciple-making communities! If we make healthy disciples who continue to make other disciples, these faith communities will soon be starting even more faith communities.</p>
+          </div>
+          <div className="rounded-[20px] bg-white/10 p-7">
+            <h3 className="font-heading text-xl font-semibold">Our Vision</h3>
+            <p className="mt-3 text-sm leading-relaxed text-white/85">To launch church-planting movements in all 50 states. Our end game is not to create one monolithic church-planting entity but to launch multiple networks that voluntarily collaborate and partner to launch more churches in their regions.</p>
+          </div>
+          <div className="rounded-[20px] bg-white/10 p-7">
+            <h3 className="font-heading text-xl font-semibold">Our Heritage</h3>
+            <p className="mt-3 text-sm leading-relaxed text-white/85">Nexus&rsquo; leadership comes from the networks of churches known as the Restoration Movement. In keeping with the history of this movement, we commit to embracing unity with all like-minded congregations and other Christian networks and groups.</p>
+          </div>
         </CardGrid>
-      </Section>
+      </ImageSection>
 
       <Section>
         <SectionHeading>Our Values</SectionHeading>
@@ -173,7 +183,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <TextureSection>
         <SectionHeading sub="The team at Nexus prides itself on being both thoughtful and intentional. It's why you won't see us focusing solely on the numbers. With us, it's about building churches that will last for decades to come — not padding an annual report with new churches that aren't sustainable. Here's how we do that.">
           What Makes Us Unique?
         </SectionHeading>
@@ -184,7 +194,7 @@ export default function AboutPage() {
             ))}
           </CardGrid>
         </div>
-      </Section>
+      </TextureSection>
 
       <Section className="text-center">
         <SectionHeading>Our Name Says It All</SectionHeading>
@@ -205,7 +215,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <PlantTheChurchBand />
+      <CalledToPlantBand image="/img/IMG_7905-scaled-e1674238483735.jpeg" />
     </>
   );
 }

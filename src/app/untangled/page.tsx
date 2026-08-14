@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageHero, Section, SectionHeading, Button, CardGrid, Card } from "@/components/ui";
+import { Section, SectionHeading, Button, CardGrid, ImageSection } from "@/components/ui";
 import { PCO } from "@/lib/links";
 
 export const metadata: Metadata = { title: "Church-Planting Wives (Untangled)" };
@@ -16,13 +16,16 @@ const WEEKS = [
 export default function UntangledPage() {
   return (
     <>
-      <PageHero
-        eyebrow="A Community For Nexus Church-Planting Wives"
-        title="UNTANGLED"
-        subtitle="Join a Cohort"
-      >
-        <Button href={PCO.untangledCohort}>Join a Cohort</Button>
-      </PageHero>
+      <Section className="text-center">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+          A Community For Nexus Church-Planting Wives
+        </p>
+        <h1 className="font-heading text-5xl font-bold">UNTANGLED</h1>
+        <p className="mt-3 text-lg opacity-80">Join a Cohort</p>
+        <div className="mt-8">
+          <Button href={PCO.untangledCohort}>Join a Cohort</Button>
+        </div>
+      </Section>
 
       <Section>
         <div className="mx-auto max-w-3xl text-center">
@@ -46,17 +49,20 @@ export default function UntangledPage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <Section tone="accent-light">
         <SectionHeading sub="The first step is to join a Spiritual formation Cohort. This 6-week small group online gathering will explore 6 main topics and spiritual practices.">
           Want to get involved?
         </SectionHeading>
         <div className="mt-6 flex justify-center">
-          <Button href={PCO.untangledCohort}>Join a Cohort</Button>
+          <Button href={PCO.untangledCohort} variant="light">Join a Cohort</Button>
         </div>
         <div className="mt-10">
           <CardGrid cols={3}>
             {WEEKS.map((w) => (
-              <Card key={w.title} title={w.title} body={w.body} />
+              <div key={w.title} className="rounded-[20px] bg-white/15 p-6">
+                <h3 className="font-heading font-semibold">{w.title}</h3>
+                <p className="mt-2 text-sm text-white/85">{w.body}</p>
+              </div>
             ))}
           </CardGrid>
         </div>
@@ -77,9 +83,9 @@ export default function UntangledPage() {
         </p>
       </Section>
 
-      <Section tone="dark" className="text-center">
+      <ImageSection image="/img/pexels-fox-1595391-scaled__largepreview__.webp" className="text-center">
         <h2 className="font-heading text-3xl font-bold">Connection Cohort</h2>
-        <p className="mx-auto mt-4 max-w-2xl text-white/80">
+        <p className="mx-auto mt-4 max-w-2xl text-white/85">
           Untangled is a place designed for you! Untangled Connection Cohorts
           are designed to take those principles from the Spiritual Direction
           Cohorts and walk together in community. To mentor and to be
@@ -87,9 +93,9 @@ export default function UntangledPage() {
           connected!
         </p>
         <div className="mt-8">
-          <Button href={PCO.untangledCohort}>Get Connected — Register Today</Button>
+          <Button href={PCO.untangledCohort} variant="light">Get Connected — Register Today</Button>
         </div>
-      </Section>
+      </ImageSection>
     </>
   );
 }

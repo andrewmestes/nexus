@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { PageHero, Section, SectionHeading, Button, CardGrid, Card, Quote } from "@/components/ui";
+import { Section, SectionHeading, Button, CardGrid, Card, Quote } from "@/components/ui";
 import { PCO } from "@/lib/links";
 
 export const metadata: Metadata = { title: "The Bonhoeffer Project" };
+
+// The Bonhoeffer Project uses its own red accent on the live site, distinct
+// from the rest of the Nexus brand blue — a deliberate sub-brand color.
+const BONHOEFFER_RED = "#e4482e";
 
 const TESTIMONIALS = [
   {
@@ -38,13 +42,23 @@ const TESTIMONIALS = [
 export default function BonhoefferPage() {
   return (
     <>
-      <PageHero
-        eyebrow="A Year-long Leadership Development Community"
-        title="We Turn Leaders Into Disciple Makers"
-        subtitle="Reclaim the Discipleship-First Gospel | Craft Your Disciple-Making Plan | Change the World"
-      >
-        <Button href={PCO.thinkNextEvent}>Register</Button>
-      </PageHero>
+      <Section className="text-center">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em]" style={{ color: BONHOEFFER_RED }}>
+          A Year-long Leadership Development Community
+        </p>
+        <h1 className="mx-auto max-w-3xl font-heading text-4xl font-bold leading-tight sm:text-5xl">
+          We Turn Leaders Into Disciple Makers
+        </h1>
+        <p className="mx-auto mt-5 max-w-2xl text-lg opacity-80">
+          Reclaim the Discipleship-First Gospel | Craft Your Disciple-Making
+          Plan | Change the World
+        </p>
+        <div className="mt-8">
+          <Button href={PCO.thinkNextEvent} style={{ backgroundColor: BONHOEFFER_RED }}>
+            Register
+          </Button>
+        </div>
+      </Section>
 
       <Section>
         <CardGrid cols={3}>
@@ -74,10 +88,20 @@ export default function BonhoefferPage() {
           context. You will be challenged to study and articulate the why, the
           what, and the how of true disciple-making.
         </p>
-        <p className="mt-2 font-semibold">New groups typically form each year in March.</p>
       </Section>
 
-      <Section>
+      <Section style={{ backgroundColor: BONHOEFFER_RED }} className="text-center text-white">
+        <p className="text-lg font-semibold">
+          New groups typically form each year in March.
+        </p>
+        <div className="mt-6">
+          <Button href={PCO.thinkNextEvent} variant="light">
+            Register
+          </Button>
+        </div>
+      </Section>
+
+      <Section style={{ backgroundColor: "#cbcccc" }}>
         <SectionHeading>What Nexus Leaders Are Saying…</SectionHeading>
         <div className="mt-10 grid gap-10 sm:grid-cols-2">
           {TESTIMONIALS.map((t) => (
@@ -86,7 +110,7 @@ export default function BonhoefferPage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <Section>
         <SectionHeading>The Discipleship Gospel Webinar</SectionHeading>
         <p className="mx-auto mt-4 max-w-2xl text-center text-primary">
           Many pastors today preach a gospel that makes converts but not
@@ -105,7 +129,7 @@ export default function BonhoefferPage() {
         </div>
       </Section>
 
-      <Section>
+      <Section tone="secondary">
         <SectionHeading>The Bonhoeffer Project Podcast</SectionHeading>
         <p className="mx-auto mt-4 max-w-2xl text-center text-primary">
           Phil Claycomb comes on the podcast to discuss his experience with The
@@ -119,16 +143,18 @@ export default function BonhoefferPage() {
         </div>
       </Section>
 
-      <Section tone="dark" className="text-center">
+      <Section style={{ backgroundColor: BONHOEFFER_RED }} className="text-center text-white">
         <h2 className="font-heading text-3xl font-bold">
           The Bonhoeffer Project is a 10-month virtual cohort
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-white/80">
+        <p className="mx-auto mt-3 max-w-xl text-white/85">
           Designed to help you craft an intentional disciple-making plan for
           your local context. New groups typically form each year in March.
         </p>
         <div className="mt-8">
-          <Button href={PCO.thinkNextEvent}>Register</Button>
+          <Button href={PCO.thinkNextEvent} variant="light">
+            Register
+          </Button>
         </div>
       </Section>
     </>

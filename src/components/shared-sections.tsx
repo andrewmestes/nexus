@@ -2,7 +2,7 @@
  * Blocks that repeat across many pages on the live site.
  * Copy here is verbatim — see CONTENT_INVENTORY.md.
  */
-import { Section, SectionHeading, Button, ButtonRow, Card, CardGrid } from "./ui";
+import { Section, SectionHeading, Button, ButtonRow, Card, CardGrid, ImageSection } from "./ui";
 import { PCO } from "@/lib/links";
 
 /** "Schedule a Discovery Call / Readiness Assessment / Plan, Plant, Launch" — appears on most Plant pages. */
@@ -82,10 +82,14 @@ export function PlantTheChurchBand() {
   );
 }
 
-/** Sitewide footer band directly above the footer. */
-export function CalledToPlantBand() {
+/**
+ * "Feeling called to plant a church?" closing band, appears on most (not all)
+ * pages, each with its own background photo on the live site — not a single
+ * fixed image, so this is called explicitly per-page rather than globally.
+ */
+export function CalledToPlantBand({ image }: { image: string }) {
   return (
-    <Section tone="accent" className="text-center">
+    <ImageSection image={image} overlay="dark" className="text-center">
       <div className="flex flex-col items-center justify-between gap-6 sm:flex-row sm:text-left">
         <h2 className="font-heading text-2xl font-bold sm:text-3xl">
           Feeling called to plant a church? We can help!
@@ -96,6 +100,6 @@ export function CalledToPlantBand() {
           </Button>
         </ButtonRow>
       </div>
-    </Section>
+    </ImageSection>
   );
 }

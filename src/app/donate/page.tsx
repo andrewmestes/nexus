@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { PageHero, Section, SectionHeading, Button, Quote, CardGrid, Card } from "@/components/ui";
+import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
 import { PCO, CONTACT } from "@/lib/links";
 
 export const metadata: Metadata = { title: "Donate" };
@@ -8,14 +8,20 @@ export const metadata: Metadata = { title: "Donate" };
 export default function DonatePage() {
   return (
     <>
-      <PageHero
-        title="Leave A Powerful Legacy"
-        subtitle="Your generosity goes directly toward planting new churches and caring for the leaders who guide them."
-      >
-        <Button href={PCO.giving}>Make A Donation</Button>
-      </PageHero>
+      <Section className="text-center">
+        <h1 className="mx-auto max-w-3xl font-heading text-4xl font-bold leading-tight sm:text-5xl">
+          Leave A Powerful Legacy
+        </h1>
+        <p className="mx-auto mt-5 max-w-2xl text-lg opacity-80">
+          Your generosity goes directly toward planting new churches and
+          caring for the leaders who guide them.
+        </p>
+        <div className="mt-8">
+          <Button href={PCO.giving}>Make A Donation</Button>
+        </div>
+      </Section>
 
-      <Section>
+      <Section tone="accent">
         <div className="mx-auto grid max-w-4xl gap-8 sm:grid-cols-[auto_1fr] sm:items-center">
           <Image
             src="/img/IMG-1306-1024x1024__largepreview__.webp"
@@ -28,7 +34,7 @@ export default function DonatePage() {
             <h2 className="font-heading text-2xl font-bold">
               Together We&rsquo;re Better
             </h2>
-            <p className="mt-4 text-primary">
+            <p className="mt-4 text-white/85">
               &ldquo;You have a deep desire to leave a Kingdom impact—to be
               part of something bigger. Here at Nexus, we believe in that same
               mission. Having cared for hundreds of church leaders for nearly
@@ -45,18 +51,18 @@ export default function DonatePage() {
             </p>
             <p className="mt-4 font-semibold">
               Phil Claycomb
-              <span className="block text-sm font-normal text-primary">
+              <span className="block text-sm font-normal text-white/70">
                 Executive Director
               </span>
             </p>
             <div className="mt-6">
-              <Button href={PCO.giving}>Make A Donation</Button>
+              <Button href={PCO.giving} variant="light">Make A Donation</Button>
             </div>
           </div>
         </div>
       </Section>
 
-      <Section tone="secondary" className="text-center">
+      <Section className="text-center">
         <SectionHeading sub="Simple and secure. Give a single donation, or schedule a recurring donation using your checking account, credit card, or debit card.">
           Online Giving
         </SectionHeading>
@@ -65,7 +71,7 @@ export default function DonatePage() {
         </div>
       </Section>
 
-      <Section>
+      <TextureSection>
         <SectionHeading>More Ways to Give</SectionHeading>
         <div className="mt-10">
           <CardGrid cols={2}>
@@ -81,14 +87,14 @@ export default function DonatePage() {
             />
           </CardGrid>
         </div>
-      </Section>
+      </TextureSection>
 
-      <Section tone="secondary">
+      <ImageSection image="/img/58384484_2310863282490919_88512717555499008_o-e1674497125285.webp" overlay="dark">
         <Quote
           quote="Nexus is a biblically grounded, culturally relevant, relationally wired, and financially wise visionary church planting mission. Nexus provides church planters with the freedom to have wings and the leader care to ensure successful plants. Nexus is worth our attention and worthy of our support."
           attribution="Mark Scott, Lead Minister – Park Plaza Christian Church"
         />
-      </Section>
+      </ImageSection>
 
       <Section>
         <SectionHeading>Advancing the Gospel Together</SectionHeading>
@@ -101,22 +107,22 @@ export default function DonatePage() {
         </div>
       </Section>
 
-      <Section tone="secondary">
+      <ImageSection image="/img/adrianna-geo-x7oJQcDgtLg-unsplash-scaled-e1674496787377__largepreview__.webp" overlay="dark">
         <Quote
           quote="I have not been a part of anything this good before… genuinely. Nexus has been my fortress, my respite, in so many ways."
           attribution="Willie Tryon, Lead Pastor – Forge Christian Church"
         />
-      </Section>
+      </ImageSection>
 
-      <Section tone="dark" className="text-center">
+      <Section tone="accent" className="text-center">
         <h2 className="font-heading text-3xl font-bold">Your Gift Leaves a Lasting Legacy</h2>
-        <p className="mx-auto mt-3 max-w-xl text-white/80">
+        <p className="mx-auto mt-3 max-w-xl text-white/85">
           Know every dollar is hard at work making a difference — we believe
           keeping you informed is an act of stewardship. Watch your generosity
           plant new life-giving churches across the country.
         </p>
         <div className="mt-8">
-          <Button href={PCO.giving}>Donate</Button>
+          <Button href={PCO.giving} variant="light">Donate</Button>
         </div>
       </Section>
     </>
