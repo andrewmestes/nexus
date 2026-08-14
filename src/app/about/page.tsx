@@ -4,7 +4,11 @@ import { Section, SectionHeading, Button, ButtonRow, CardGrid, Card, ImageSectio
 import { TeamGrid, type TeamMember } from "@/components/team";
 import { CalledToPlantBand } from "@/components/shared-sections";
 
-export const metadata: Metadata = { title: "About" };
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Over the past two decades, Nexus has helped more than 80 church leaders plant life-giving, multiplying churches across North America.",
+};
 
 const VALUES = [
   { title: "Passion", body: "Salvation hangs in the balance" },

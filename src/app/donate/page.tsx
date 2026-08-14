@@ -3,7 +3,11 @@ import Image from "next/image";
 import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
 import { PCO, CONTACT } from "@/lib/links";
 
-export const metadata: Metadata = { title: "Donate" };
+export const metadata: Metadata = {
+  title: "Donate",
+  description:
+    "Your generosity goes directly toward planting new churches and caring for the leaders who guide them.",
+};
 
 export default function DonatePage() {
   return (

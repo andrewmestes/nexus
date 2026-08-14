@@ -3,7 +3,11 @@ import { TextureSection, Button } from "@/components/ui";
 import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO, CONTACT } from "@/lib/links";
 
-export const metadata: Metadata = { title: "Contact Us" };
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Looking to plant a church, partner with Nexus, or find coaching or training? Reach out and let us know how we can help.",
+};
 
 export default function ContactUsPage() {
   return (

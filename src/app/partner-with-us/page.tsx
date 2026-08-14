@@ -3,7 +3,11 @@ import Image from "next/image";
 import { Section, SectionHeading, Button, CardGrid, Card, Quote, ImageSection, TextureSection } from "@/components/ui";
 import { CalledToPlantBand } from "@/components/shared-sections";
 
-export const metadata: Metadata = { title: "Partner With Us" };
+export const metadata: Metadata = {
+  title: "Partner With Us",
+  description:
+    "Achieve your church-planting vision in your region and beyond — our partnership provides strategic guidance and peace of mind.",
+};
 
 export default function PartnerWithUsPage() {
   return (

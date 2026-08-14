@@ -3,7 +3,11 @@ import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, T
 import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = { title: "Church Planter Pathway" };
+export const metadata: Metadata = {
+  title: "Church Planter Pathway",
+  description:
+    "The Church Planter Pathway will help you plant a church today designed to leave a lasting impact in your community tomorrow.",
+};
 
 export default function ChurchPlanterPathwayPage() {
   return (

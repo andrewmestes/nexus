@@ -3,7 +3,11 @@ import { PageHero, Section, SectionHeading, Button, ButtonRow, Quote, CardGrid, 
 import { CalledToPlantBand } from "@/components/shared-sections";
 import { TIDYCAL_DISCOVERY, VISION_CLARITY } from "@/lib/links";
 
-export const metadata: Metadata = { title: "The Clarity Project" };
+export const metadata: Metadata = {
+  title: "The Clarity Project",
+  description:
+    "Lead with confidence. Align your team. Multiply your Kingdom impact. The Clarity Project helps ministry and marketplace leaders cut through the noise.",
+};
 
 const PATHS = [
   {

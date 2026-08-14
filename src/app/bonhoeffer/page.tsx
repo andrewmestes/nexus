@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Section, SectionHeading, Button, CardGrid, Card, Quote, VideoPlayer } from "@/components/ui";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = { title: "The Bonhoeffer Project" };
+export const metadata: Metadata = {
+  title: "The Bonhoeffer Project",
+  description:
+    "A 10-month virtual cohort to help you reclaim the Discipleship-First Gospel, craft your disciple-making plan, and change the world one person at a time.",
+};
 
 // The Bonhoeffer Project uses its own red accent on the live site, distinct
 // from the rest of the Nexus brand blue — a deliberate sub-brand color.

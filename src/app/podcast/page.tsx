@@ -4,7 +4,11 @@ import { PageHero, Section, SectionHeading } from "@/components/ui";
 import { getEpisodes } from "@/lib/podcast";
 import { PODCAST } from "@/lib/links";
 
-export const metadata: Metadata = { title: "Podcast" };
+export const metadata: Metadata = {
+  title: "Podcast",
+  description:
+    "The Nexus Church Planting Podcast equips church planters, pastors, and everyday leaders to multiply disciple-making communities.",
+};
 
 export default async function PodcastPage() {
   const episodes = await getEpisodes();

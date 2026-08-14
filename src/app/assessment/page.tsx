@@ -3,7 +3,11 @@ import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, T
 import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = { title: "Assessment" };
+export const metadata: Metadata = {
+  title: "Assessment",
+  description:
+    "The Nexus Assessment Center is designed to help pastors and church leaders determine their readiness to plant.",
+};
 
 export default function AssessmentPage() {
   return (

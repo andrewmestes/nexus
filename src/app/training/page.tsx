@@ -3,7 +3,11 @@ import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, T
 import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = { title: "Training" };
+export const metadata: Metadata = {
+  title: "Training",
+  description:
+    "Our training is designed to help you launch and lead a life-giving, multiplying church — from Church Planter Training to The Bonhoeffer Project.",
+};
 
 const PROGRAMS = [
   {

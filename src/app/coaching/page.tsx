@@ -4,7 +4,11 @@ import { TeamGrid, type TeamMember } from "@/components/team";
 import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = { title: "Coaching" };
+export const metadata: Metadata = {
+  title: "Coaching",
+  description:
+    "Our coaches guide you through the highs and lows of launching a life-giving, multiplying church.",
+};
 
 const COACHES: TeamMember[] = [
   {
