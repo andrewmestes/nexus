@@ -303,6 +303,18 @@ export function Card({
 
 /* ------------------------------------------------------------------- video */
 
+/** Self-hosted mp4 player, matches the live site's plain `<video controls>` treatment. */
+export function VideoPlayer({ src, className = "" }: { src: string; className?: string }) {
+  return (
+    <video
+      src={src}
+      controls
+      preload="metadata"
+      className={`mx-auto w-full max-w-[1000px] rounded-[10px] shadow-soft ${className}`}
+    />
+  );
+}
+
 export function YouTubeEmbed({ id, title }: { id: string; title: string }) {
   return (
     <div className="overflow-hidden rounded-[10px] bg-black shadow-soft">

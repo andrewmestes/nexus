@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Section, SectionHeading, Button, Quote, Card, CardGrid, ImageSection, TextureSection } from "@/components/ui";
+import { Section, SectionHeading, Button, Quote, Card, CardGrid, ImageSection, TextureSection, VideoPlayer } from "@/components/ui";
 import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
@@ -84,6 +84,9 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="mt-12">
+          <VideoPlayer src="/video/Nexus-Intro-Video.mp4" />
         </div>
       </Section>
 
@@ -232,6 +235,9 @@ export default function HomePage() {
         <SectionHeading sub="The heartbeat of Nexus is to not only plant churches but to truly care for those called to that difficult task. We are a family that helps coach, train, mentor, and guide planters along the journey to plant a life-giving and multiplying church.">
           Testimonies From Nexus Planters
         </SectionHeading>
+        <div className="mt-10">
+          <VideoPlayer src="/video/What-Has-Nexus-Meant-To-You.mp4" />
+        </div>
         <div className="mt-8">
           <Button href="/church-planter-pathway">Church Planter Pathway</Button>
         </div>

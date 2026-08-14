@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Section, SectionHeading, Button, CardGrid, Card, Quote } from "@/components/ui";
+import { Section, SectionHeading, Button, CardGrid, Card, Quote, VideoPlayer } from "@/components/ui";
 import { PCO } from "@/lib/links";
 
 export const metadata: Metadata = { title: "The Bonhoeffer Project" };
@@ -88,6 +88,9 @@ export default function BonhoefferPage() {
           context. You will be challenged to study and articulate the why, the
           what, and the how of true disciple-making.
         </p>
+        <div className="mt-8">
+          <VideoPlayer src="/video/The-Bonhoeffer-Project-Promo-Video.mp4" />
+        </div>
       </Section>
 
       <Section style={{ backgroundColor: BONHOEFFER_RED }} className="text-center text-white">
