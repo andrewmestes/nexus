@@ -5,6 +5,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { UpcomingEventsPopup } from "@/components/upcoming-events-popup";
+import { RevealInit } from "@/components/reveal-init";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -21,6 +22,31 @@ const merriweather = Merriweather({
 });
 
 const GTM_ID = "GTM-K9HBN36K";
+
+const ORG_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Church",
+  name: "Nexus Church Planting & Leader Care",
+  url: "https://www.nexus.us/",
+  logo: "https://www.nexus.us/img/Nexus-Logo-White__largepreview__.webp",
+  description:
+    "Nexus is a church-planting organization built to help pastors and church leaders stand in the center of their calling and multiply disciples in their community and beyond.",
+  email: "info@nexus.us",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "4100 W. Eldorado Pkwy Ste 100 #318",
+    addressLocality: "McKinney",
+    addressRegion: "TX",
+    postalCode: "75070-4530",
+    addressCountry: "US",
+  },
+  sameAs: [
+    "https://www.facebook.com/nexuschurchplanting/",
+    "https://www.instagram.com/nexus_church_planting/",
+    "https://www.linkedin.com/company/nexus-church-planting-leader-care/",
+    "https://www.youtube.com/channel/UCd5AMLFOOTjdiQ8wiwMW51Q",
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nexus.us"),
@@ -44,6 +70,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${oswald.variable} ${merriweather.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSON_LD) }}
+        />
+        <RevealInit />
         {/* Google Tag Manager — container carried over from the Church Co site.
             GTM's own config routes to GA4 (G-QY0HRC0982 et al) and Google Ads (AW-573200046). */}
         <Script id="gtm-init" strategy="afterInteractive">

@@ -45,7 +45,10 @@ export default function TrainingPage() {
   return (
     <>
       <TextureSection>
-        <SectionHeading sub="Our training is designed to help you launch and lead a life-giving, multiplying church.">
+        <SectionHeading
+          as="h1"
+          sub="Our training is designed to help you launch and lead a life-giving, multiplying church."
+        >
           The Training You Need to See Your Disciple-Making Vision Come to Life
         </SectionHeading>
       </TextureSection>

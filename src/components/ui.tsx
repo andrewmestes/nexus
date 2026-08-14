@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode, CSSProperties } from "react";
+import { LazyYouTube } from "./lazy-youtube";
 
 /* ------------------------------------------------------------------ layout */
 
@@ -46,7 +47,7 @@ export function ImageSection({
       style={{ backgroundImage: `url(${image})` }}
     >
       <div className={`absolute inset-0 bg-gradient-to-b ${scrim}`} />
-      <div className="relative mx-auto max-w-[1145px] px-5 py-16 sm:py-20">
+      <div className="reveal relative mx-auto max-w-[1145px] px-5 py-16 sm:py-20">
         {children}
       </div>
     </section>
@@ -69,7 +70,7 @@ export function TextureSection({
       className={`bg-base-bg text-base-text ${className}`}
       style={{ backgroundImage: "url(/img/funky-lines.png)", backgroundRepeat: "repeat" }}
     >
-      <div className="mx-auto max-w-[1145px] px-5 py-16 sm:py-20">{children}</div>
+      <div className="reveal mx-auto max-w-[1145px] px-5 py-16 sm:py-20">{children}</div>
     </section>
   );
 }
@@ -80,16 +81,22 @@ export function Section({
   tone = "light",
   id,
   style,
+  noReveal = false,
 }: {
   children: ReactNode;
   className?: string;
   tone?: Tone;
   id?: string;
   style?: CSSProperties;
+  noReveal?: boolean;
 }) {
   return (
     <section id={id} className={`${TONE[tone]} ${className}`} style={style}>
-      <div className="mx-auto max-w-[1145px] px-5 py-16 sm:py-20">{children}</div>
+      <div
+        className={`mx-auto max-w-[1145px] px-5 py-16 sm:py-20 ${noReveal ? "" : "reveal"}`}
+      >
+        {children}
+      </div>
     </section>
   );
 }
@@ -129,15 +136,18 @@ export function SectionHeading({
   children,
   sub,
   align = "center",
+  as: Tag = "h2",
 }: {
   children: ReactNode;
   sub?: ReactNode;
   align?: "center" | "left";
+  /** Use "h1" when this is a page's opening heading — every page needs exactly one. */
+  as?: "h1" | "h2";
 }) {
   const a = align === "center" ? "text-center mx-auto" : "text-left";
   return (
     <div className={`${a} max-w-3xl`}>
-      <h2 className="font-heading text-3xl font-bold sm:text-4xl">{children}</h2>
+      <Tag className="font-heading text-3xl font-bold sm:text-4xl">{children}</Tag>
       {sub && <p className="mt-4 text-lg opacity-80">{sub}</p>}
     </div>
   );
@@ -164,7 +174,7 @@ export function Button({
     light: "bg-white text-tertiary hover:bg-white/90",
   }[variant];
 
-  const cls = `inline-block rounded-[10px] px-7 py-4 text-sm font-semibold uppercase tracking-wide transition-colors ${styles}`;
+  const cls = `inline-block rounded-[10px] px-7 py-4 text-sm font-semibold uppercase tracking-wide transition-all duration-250 hover:-translate-y-0.5 hover:shadow-lg ${styles}`;
 
   // Church Center modal links and other external URLs need a plain anchor.
   const isExternal = external ?? /^https?:\/\//.test(href);
@@ -186,6 +196,42 @@ export function ButtonRow({ children }: { children: ReactNode }) {
   return <div className="flex flex-wrap items-center gap-4">{children}</div>;
 }
 
+/** Text link with the sliding-underline + arrow-nudge treatment used across the reference sites. */
+export function ArrowLink({
+  href,
+  children,
+  external,
+  className = "",
+}: {
+  href: string;
+  children: ReactNode;
+  external?: boolean;
+  className?: string;
+}) {
+  const isExternal = external ?? /^https?:\/\//.test(href);
+  const cls = `group inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide transition-colors ${className}`;
+  const inner = (
+    <>
+      {children}
+      <span className="inline-block transition-transform duration-250 group-hover:translate-x-1">
+        →
+      </span>
+    </>
+  );
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
+        {inner}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={cls}>
+      {inner}
+    </Link>
+  );
+}
+
 /* ---------------------------------------------------------------- testimonial */
 
 export function Quote({
@@ -200,7 +246,7 @@ export function Quote({
   image?: string;
 }) {
   return (
-    <figure className="mx-auto max-w-2xl text-center">
+    <figure className="reveal mx-auto max-w-2xl text-center">
       {image && (
         <Image
           src={image}
@@ -257,15 +303,17 @@ export function Card({
 }) {
   const isExternal = href ? /^https?:\/\//.test(href) : false;
   return (
-    <div className="flex flex-col overflow-hidden rounded-[20px] bg-white shadow-soft">
+    <div className="group flex flex-col overflow-hidden rounded-[20px] bg-white shadow-soft transition-shadow duration-300 hover:shadow-elevated">
       {image && (
-        <Image
-          src={image}
-          alt=""
-          width={600}
-          height={400}
-          className="h-48 w-full object-cover"
-        />
+        <div className="overflow-hidden">
+          <Image
+            src={image}
+            alt=""
+            width={600}
+            height={400}
+            className="h-48 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          />
+        </div>
       )}
       <div className="flex flex-1 flex-col p-7">
         {eyebrow && (
@@ -284,16 +332,22 @@ export function Card({
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-block text-sm font-semibold uppercase tracking-wide text-accent"
+              className="group/link mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold uppercase tracking-wide text-accent transition-colors hover:text-accent-dark"
             >
-              {cta} →
+              {cta}
+              <span className="inline-block transition-transform duration-250 group-hover/link:translate-x-1">
+                →
+              </span>
             </a>
           ) : (
             <Link
               href={href}
-              className="mt-5 inline-block text-sm font-semibold uppercase tracking-wide text-accent"
+              className="group/link mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold uppercase tracking-wide text-accent transition-colors hover:text-accent-dark"
             >
-              {cta} →
+              {cta}
+              <span className="inline-block transition-transform duration-250 group-hover/link:translate-x-1">
+                →
+              </span>
             </Link>
           ))}
       </div>
@@ -315,6 +369,7 @@ export function VideoPlayer({ src, className = "" }: { src: string; className?: 
   );
 }
 
+/** @deprecated use LazyYouTube — kept for reference, no longer used (see performance note in LazyYouTube). */
 export function YouTubeEmbed({ id, title }: { id: string; title: string }) {
   return (
     <div className="overflow-hidden rounded-[10px] bg-black shadow-soft">
@@ -343,14 +398,14 @@ export function VideoCard({
 }) {
   return (
     <div className="flex flex-col">
-      <YouTubeEmbed id={id} title={title} />
+      <LazyYouTube id={id} title={title} />
       <h3 className="mt-4 font-heading text-lg font-semibold">{title}</h3>
       {handout && (
         <a
           href={handout}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-1 text-sm font-semibold text-accent"
+          className="mt-1 text-sm font-semibold text-accent hover:text-accent-dark"
         >
           CLICK HERE to download the handout for this session.
         </a>

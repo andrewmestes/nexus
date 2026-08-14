@@ -13,7 +13,10 @@ export default function AssessmentPage() {
   return (
     <>
       <TextureSection>
-        <SectionHeading sub="The Nexus Assessment Center is designed to help pastors and church leaders determine their readiness to plant.">
+        <SectionHeading
+          as="h1"
+          sub="The Nexus Assessment Center is designed to help pastors and church leaders determine their readiness to plant."
+        >
           Helping Pastors and Leaders Prepare for the Church Planting Process
         </SectionHeading>
       </TextureSection>

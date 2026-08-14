@@ -53,7 +53,10 @@ export default function CoachingPage() {
   return (
     <>
       <TextureSection>
-        <SectionHeading sub="Our coaches guide you through the highs and lows of launching a life-giving, multiplying church.">
+        <SectionHeading
+          as="h1"
+          sub="Our coaches guide you through the highs and lows of launching a life-giving, multiplying church."
+        >
           Coaching to Help Pastors and Leaders Excel in Their Ministry
         </SectionHeading>
       </TextureSection>
