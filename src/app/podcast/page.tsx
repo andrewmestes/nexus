@@ -40,16 +40,20 @@ export default async function PodcastPage() {
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-4">
               <a href={PODCAST.apple} target="_blank" rel="noopener noreferrer">
-                <img
+                <Image
                   src="/img/Listen-on-Apple-Podcast-Logo-Vector.svg-__largepreview__.webp"
                   alt="Listen on Apple Podcasts"
+                  width={160}
+                  height={40}
                   className="h-10 w-auto"
                 />
               </a>
               <a href={PODCAST.spotify} target="_blank" rel="noopener noreferrer">
-                <img
+                <Image
                   src="/img/spotify-podcast-badge-blk-grn-660x160__largepreview__.webp"
                   alt="Listen on Spotify"
+                  width={165}
+                  height={40}
                   className="h-10 w-auto"
                 />
               </a>

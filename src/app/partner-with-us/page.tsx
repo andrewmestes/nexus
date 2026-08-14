@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero, Section, SectionHeading, Button, CardGrid, Card, Quote } from "@/components/ui";
 
 export const metadata: Metadata = { title: "Partner With Us" };
@@ -105,9 +106,11 @@ export default function PartnerWithUsPage() {
         <SectionHeading>Key Partners</SectionHeading>
         <div className="mt-10 space-y-10">
           <div className="grid gap-6 sm:grid-cols-[200px_1fr] sm:items-center">
-            <img
+            <Image
               src="/img/NewChurch_Network_Logo_Final-06-1024x146__largepreview__.webp"
               alt="NewChurch Network"
+              width={1024}
+              height={146}
               className="h-auto w-full rounded-[10px] bg-secondary p-4"
             />
             <div>
@@ -139,9 +142,11 @@ export default function PartnerWithUsPage() {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-[200px_1fr] sm:items-center">
-            <img
+            <Image
               src="/img/GCR-Logo-small-1__largepreview__.webp"
               alt="Golf Course Road Church of Christ"
+              width={400}
+              height={200}
               className="h-auto w-full rounded-[10px] bg-secondary p-4"
             />
             <div>

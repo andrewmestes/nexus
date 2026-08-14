@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero, Section, SectionHeading, Button, ButtonRow, CardGrid, Card } from "@/components/ui";
 import { TeamGrid, type TeamMember } from "@/components/team";
 import { PlantTheChurchBand } from "@/components/shared-sections";
@@ -143,9 +144,11 @@ export default function AboutPage() {
               </div>
             </ButtonRow>
           </div>
-          <img
+          <Image
             src="/img/LUK05612-copy-scaled__mediumsquare__.webp"
             alt=""
+            width={600}
+            height={600}
             className="rounded-[20px] object-cover shadow-soft"
           />
         </div>
