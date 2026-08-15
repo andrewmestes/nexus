@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
 /** Sponsor logos, in the order the live page lists them. */
 const SPONSORS = [
   { src: "/img/gloo-1__trust__.webp", name: "Gloo" },
-  { src: "/img/GCR-Logo-small-1__trust__.webp", name: "GCR" },
+  { src: "/img/GCR-Logo-small-1__largepreview__.webp", name: "GCR" },
   { src: "/img/solomonLogo__trust__.webp", name: "The Solomon Foundation" },
   { src: "/img/CFR1-e1673973021411__trust__.webp", name: "CFR" },
   {
