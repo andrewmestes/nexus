@@ -411,11 +411,14 @@ export function VideoCard({
   title,
   body,
   handout,
+  handoutLabel,
 }: {
   id: string;
   title: string;
   body?: string;
   handout?: string;
+  /** Live uses "session handout" wording on one card; override it here. */
+  handoutLabel?: string;
 }) {
   return (
     <div className="flex flex-col">
@@ -426,9 +429,9 @@ export function VideoCard({
           href={handout}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-1 text-sm font-semibold text-accent hover:text-accent-dark"
+          className="mt-1 text-sm font-semibold italic text-accent hover:text-accent-dark"
         >
-          CLICK HERE to download the handout for this session.
+          {handoutLabel ?? "CLICK HERE to download the handout for this session."}
         </a>
       )}
       {body && <p className="mt-2 text-sm leading-relaxed opacity-80">{body}</p>}

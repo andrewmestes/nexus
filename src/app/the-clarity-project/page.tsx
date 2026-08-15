@@ -127,10 +127,14 @@ export default function ClarityProjectPage() {
           progress. From trying harder to leading smarter. From uncertainty to
           confidence.
         </p>
+        <p className="mx-auto mt-8 max-w-xl font-heading text-xl font-semibold">
+          👉 Book a Free Discovery Call
+        </p>
+        <p className="mx-auto mt-2 max-w-xl text-white/80">
+          Take the first step toward clarity today!
+        </p>
         <div className="mt-6">
-          <Button href={TIDYCAL_DISCOVERY}>
-            👉 Book a Free Discovery Call
-          </Button>
+          <Button href={TIDYCAL_DISCOVERY}>Schedule A Discovery Call</Button>
         </div>
       </Section>
 

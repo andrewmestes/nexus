@@ -160,10 +160,21 @@ export default function LeadershipInstitutePage() {
             </p>
             <p className="mt-4 font-semibold">MAKE A PERSONAL INVESTMENT</p>
             <p className="mt-2 text-primary">
-              The Nexus Leadership Institute will expose you to thought
-              leaders and practitioners worldwide. Each month, in preparation
-              for our virtual cohort time, you will process curated material
-              ahead of time to help accelerate our learning time together.
+              The Nexus Leadership Institute will expose you to thought leaders and
+              practitioners worldwide. We&rsquo;ll give you the best of the best
+              resources and leaders we have to offer!
+            </p>
+            <p className="mt-4 text-primary">
+              You will grow and be challenged in your leadership through books,
+              articles, videos, and more. Our deepest desire is to equip you for a
+              lifetime of ministry impact. You may not always be at the church
+              you&rsquo;re at now, but Lord willing, you will always serve the Kingdom!
+              The skills and knowledge you acquire now can impact generations.
+            </p>
+            <p className="mt-4 text-primary">
+              Each month, in preparation for our virtual cohort time, you will process
+              curated material ahead of time to help accelerate our learning time
+              together.
             </p>
           </div>
           <Image
@@ -227,7 +238,22 @@ export default function LeadershipInstitutePage() {
           <Card
             eyebrow="Year Two"
             title="Biblical Foundations & Disciple-Making"
-            body="Biblical Foundation: This section will focus on the foundations of Christian doctrine, the overall story of scripture, and the distinctives of the Bible and the Restoration Movement. Disciple-Making: Training leaders in practical, reproducible tools for making multiplying disciples through the 4 fields, 411 training, and understanding the Gospel."
+            body={
+              <>
+                <strong>Biblical Foundation:</strong> This section will focus on the
+                foundations of Christian doctrine. Helping leaders understand the
+                overall story of scripture and the distinctives of the Bible and the
+                Restoration Movement.
+                <br />
+                <br />
+                <strong>Disciple-Making:</strong> This is the Great Commission. Making
+                disciple-makers in our churches to multiply disciple-making
+                communities. This section will train leaders in practical, reproducible
+                tools for making multiplying disciples. Through the 4 fields, 411
+                training, and understanding the Gospel, we&rsquo;ll give leaders a big
+                vision, a clear pathway, and simple tools.
+              </>
+            }
           />
         </CardGrid>
       </Section>
