@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/ui";
@@ -7,11 +8,12 @@ import { YouTubeIcon, SpotifyIcon, ApplePodcastsIcon } from "@/components/podcas
 import { FEATURED_EPISODES, ARCHIVE_EPISODES } from "@/lib/podcast";
 import { PODCAST, SOCIAL } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Podcast",
   description:
     "The Nexus Church Planting Podcast, hosted by Andrew Estes, equips church planters, pastors, and everyday leaders to multiply disciple-making communities. 40+ conversations with practitioners like Will Mancini, Tod Bolsinger, and Jessie Cruickshank.",
-};
+  path: "/podcast",
+});
 
 const PODCAST_JSON_LD = {
   "@context": "https://schema.org",
@@ -124,13 +126,20 @@ export default function PodcastPage() {
             <em className="text-accent not-italic">multiply</em> disciple-making
             communities.
           </p>
+          {/* Verbatim "About" copy from the live site — kept so the page still
+              carries the show's own description, not just the redesigned framing. */}
           <p className="mt-6 text-lg leading-relaxed opacity-80">
-            Each episode, Andrew sits down with practitioners and thought leaders on
-            disciple-making movements, leadership development, gospel clarity, and
-            planting healthy churches in every context. Whether you&rsquo;re just
-            starting your church plant or leading an established congregation,
-            you&rsquo;ll find encouragement, clarity, and practical tools to advance
-            the mission of Jesus.
+            The Nexus Church Planting Podcast is where church planters, pastors, and
+            everyday leaders are equipped to multiply disciple-making communities. This
+            podcast features conversations with practitioners and thought leaders on
+            topics like disciple-making movements, leadership development, gospel
+            clarity, practical ministry, church resources, and more. Whether
+            you&rsquo;re just starting your church plant or leading an established
+            congregation, you&rsquo;ll find encouragement, clarity, and practical tools
+            to advance the mission of Jesus.
+          </p>
+          <p className="mt-5 text-sm font-semibold uppercase tracking-[0.15em] text-accent">
+            Hosted by Andrew Estes
           </p>
         </div>
       </Section>

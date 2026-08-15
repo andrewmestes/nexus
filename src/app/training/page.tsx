@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
-import { CalledToPlantBand } from "@/components/shared-sections";
+import { CalledToPlantBand, NextStepsBand, PlantTheChurchBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Training",
   description:
     "Our training is designed to help you launch and lead a life-giving, multiplying church — from Church Planter Training to The Bonhoeffer Project.",
-};
+  path: "/training",
+});
 
 const PROGRAMS = [
   {
@@ -16,6 +19,10 @@ const PROGRAMS = [
     quote: "We love working with Nexus because they truly have a kingdom perspective! Their open-handed and open-hearted approach to starting churches all over the United States makes it a joy to partner with them. Their encouragement and support has been a huge help as we plant churches in Florida.",
     attribution: "Jeff Swearingen, Director – Florida Church Planters",
     image: "/img/89045610_3415462501814081_2877505041801936896_n-e1674834388919.jpg",
+    href: "/aos",
+    logo: "/img/The-Art-of-the-Start-Logo-Blue-1-768x260__largepreview__.webp",
+    logoAlt: "The Art of the Start",
+    quoteImage: "/img/jeff-s__mediumsquare__.webp",
   },
   {
     title: "Leadership Summit (ThinkNEXT)",
@@ -23,6 +30,10 @@ const PROGRAMS = [
     quote: "I could see how in church planting you could feel very alone if you weren't careful. Nexus has done a good job of removing that possibility for me.",
     attribution: "Steve Bolin, Lead Minister – Thrive Church",
     tone: "accent" as const,
+    href: "/thinknext",
+    logo: "/img/ThinkNEXT-Logo_white-1024x320__largepreview__.webp",
+    logoAlt: "ThinkNEXT",
+    quoteImage: "/img/Steve-Bolin.png",
   },
   {
     title: "Discipleship Training (The Bonhoeffer Project)",
@@ -30,14 +41,25 @@ const PROGRAMS = [
     quote: "The Bonhoeffer Project has been a refreshing look at the very words of Jesus in light of what discipleship should be. It truly helped me to put into practice what I had been struggling to do for years. The Bonhoeffer Project has brought joy back to the ministry God has called me to do.",
     attribution: "Brian Snyder, Executive Minister, Boone Creek Christian",
     href: "/bonhoeffer",
+    logo: "/img/tbplogofull-768x178__largepreview__.webp",
+    logoAlt: "The Bonhoeffer Project",
+    quoteImage: "/img/brian-snyder-e1610989568713-1024x1024.jpg",
   },
   {
     title: "Visionary Leadership Training (The Clarity Project)",
-    body: "The Clarity Project ensures individuals and leadership teams gain clarity regarding who they are and what God has called them to do as a church, organization, or person.\n\nWith the guidance of The Clarity Project, you will experience: Freedom, Confidence, and Clarity — and more!",
+    body: "The Clarity Project ensures individuals and leadership teams gain clarity regarding who they are and what God has called them to do as a church, organization, or person.\n\nWith the guidance of The Clarity Project, you will experience:",
+    outcomes: [
+      "Freedom - When you're living out the vision God created you to pursue, that's when you experience true freedom.",
+      "Confidence - When you know what God has called you to do personally and organizationally, you can lead yourself and others with immeasurable confidence.",
+      "Clarity - When you clarify your vision, you can pursue the greater things God has in store for you and say \"no\" to distractions.",
+    ],
     quote: "Andrew (the leader of this project) is an effective, relatable developer of people. He is the best kind of coach—the kind who meets you where you are and successfully guides you forward. Andrew is a clear communicator who is both client-focused and Jesus-led. I trust him with my friends.",
     attribution: "Jessie Cruickshank, Author of Ordinary Discipleship",
     href: "/the-clarity-project",
     tone: "secondary" as const,
+    logo: "/img/inverted_logo_transparent-768x253__largepreview__.webp",
+    logoAlt: "The Clarity Project",
+    quoteImage: "/img/Jess-819x1024-square.webp",
   },
 ];
 
@@ -72,14 +94,24 @@ export default function TrainingPage() {
             </div>
           </div>
           <blockquote className="rounded-[20px] bg-white/10 p-8">
-            <p className="font-heading text-lg italic">
+            <p className="font-heading text-lg italic text-white/90">
+              Nexus Was Huge From Day One
+            </p>
+            <p className="mt-3 font-heading text-lg italic">
               &ldquo;(Nexus) was huge from day one! Just to have that ongoing
               partnership in ministry and that extra motivating factor to keep
               pressing on, to keep doing, to keep growing, to keep
               thinking.&rdquo;
             </p>
-            <footer className="mt-4 text-sm text-white/70">
-              Mike Moser, Lead Pastor – Connection Christian Church
+            <footer className="mt-5 flex items-center gap-4 text-sm text-white/70">
+              <Image
+                src="/img/Mike-Moser__mediumsquare__.webp"
+                alt=""
+                width={64}
+                height={64}
+                className="h-16 w-16 shrink-0 rounded-full object-cover"
+              />
+              <span>Mike Moser, Lead Pastor – Connection Christian Church</span>
             </footer>
           </blockquote>
         </div>
@@ -104,16 +136,17 @@ export default function TrainingPage() {
           <span>Focus Your Attention On God</span>
         </div>
         <Quote
+          heading="This Process is a Godsend"
           quote="Church leaders get distracted often with the rigors of doing ministry. This process is a Godsend and has kept us accountable to the vision God has for our church."
           attribution="Patrick Lightfoot, Lead Pastor – Traverse Christian Church"
+          image="/img/Patrick-Hannah-1-e1674763827572__mediumsquare__.webp"
         />
       </Section>
 
-      <TextureSection>
-        <SectionHeading sub="Whether you're a church network leader or a church planter, the next step beyond our trainings is partnering with Nexus to launch your next church planting movement.">
-          Continue Your Journey in Ministry With Confidence
-        </SectionHeading>
-      </TextureSection>
+      <NextStepsBand
+        heading="Continue Your Journey in Ministry With Confidence"
+        sub="Whether you're a church network leader or a church planter, the next step beyond our trainings is partnering with Nexus to launch your next church planting movement. Here's how to get started."
+      />
 
       <ImageSection image="/img/Q7A2553-scaled-e1674764647470-2.webp">
         <SectionHeading>Nexus Is Here to Guide You in Your Church Planting Mission</SectionHeading>
@@ -125,6 +158,8 @@ export default function TrainingPage() {
           </CardGrid>
         </div>
       </ImageSection>
+
+      <PlantTheChurchBand />
 
       <CalledToPlantBand image="/img/Screen-Shot-2021-06-22-at-8.45.14-AM-e1624374780313.png" />
     </>
@@ -141,12 +176,37 @@ function ProgramBlock({
   return (
     <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
       <div>
-        <h2 className={`font-heading text-2xl font-bold ${light ? "" : ""}`}>{p.title}</h2>
+        {"logo" in p && p.logo && (
+          <Image
+            src={p.logo}
+            alt={("logoAlt" in p && p.logoAlt) || ""}
+            width={300}
+            height={100}
+            className="mb-5 h-auto w-full max-w-[260px]"
+          />
+        )}
+        <h2 className="font-heading text-2xl font-bold">{p.title}</h2>
         {p.body.split("\n\n").map((para) => (
           <p key={para.slice(0, 20)} className={`mt-4 ${light ? "text-white/85" : "text-primary"}`}>
             {para}
           </p>
         ))}
+        {"outcomes" in p && p.outcomes && (
+          <ul className="mt-5 flex flex-col gap-3">
+            {p.outcomes.map((o) => {
+              const [label, ...rest] = o.split(" - ");
+              return (
+                <li
+                  key={label}
+                  className={`text-sm leading-relaxed ${light ? "text-white/85" : "text-primary"}`}
+                >
+                  <strong className={light ? "text-white" : "text-accent"}>{label}</strong>
+                  {rest.length > 0 && ` - ${rest.join(" - ")}`}
+                </li>
+              );
+            })}
+          </ul>
+        )}
         {p.href && (
           <div className="mt-6">
             <Button href={p.href} variant={light ? "light" : "primary"}>
@@ -157,8 +217,17 @@ function ProgramBlock({
       </div>
       <blockquote className={`rounded-[20px] p-8 ${light ? "bg-white/10" : "bg-secondary"}`}>
         <p className="font-heading text-lg italic">&ldquo;{p.quote}&rdquo;</p>
-        <footer className={`mt-4 text-sm ${light ? "text-white/70" : "text-primary"}`}>
-          {p.attribution}
+        <footer className={`mt-5 flex items-center gap-4 text-sm ${light ? "text-white/70" : "text-primary"}`}>
+          {"quoteImage" in p && p.quoteImage && (
+            <Image
+              src={p.quoteImage}
+              alt=""
+              width={64}
+              height={64}
+              className="h-16 w-16 shrink-0 rounded-full object-cover"
+            />
+          )}
+          <span>{p.attribution}</span>
         </footer>
       </blockquote>
     </div>

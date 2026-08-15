@@ -1,22 +1,30 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { Section, SectionHeading, Button, ButtonRow, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
 import { TeamGrid, type TeamMember } from "@/components/team";
 import { CalledToPlantBand } from "@/components/shared-sections";
+import { LazyYouTube } from "@/components/lazy-youtube";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
     "Over the past two decades, Nexus has helped more than 80 church leaders plant life-giving, multiplying churches across North America.",
-};
+  path: "/about",
+});
 
+/** Each value has a short teaching video on the live site. */
 const VALUES = [
-  { title: "Passion", body: "Salvation hangs in the balance" },
-  { title: "Just Lead", body: "Go with the Goers!!" },
-  { title: "Risk-Taking", body: "Run with Scissors!" },
-  { title: "Nurture", body: "Leaders are our Legacy" },
-  { title: "Selflessness", body: "Giving without an expectation of return" },
-  { title: "ThinkNext", body: "Fail Fast-Recover Faster" },
+  { title: "Passion", body: "Salvation hangs in the balance", video: "I-MIW9cjzSk" },
+  { title: "Just Lead", body: "Go with the Goers!!", video: "y-hxWAvX70E" },
+  { title: "Risk-Taking", body: "Run with Scissors!", video: "g3BwcQXJZHc" },
+  { title: "Nurture", body: "Leaders are our Legacy", video: "gWWZZhobYhw" },
+  {
+    title: "Selflessness",
+    body: "Giving without an expectation of return",
+    video: "FwHUtlKCXPo",
+  },
+  { title: "ThinkNext", body: "Fail Fast-Recover Faster", video: "M8ed-r3HZTw" },
 ];
 
 const UNIQUE = [
@@ -60,7 +68,22 @@ const TEAM: TeamMember[] = [
     name: "Clint Burns",
     role: "Director of Coaching",
     photo: "/img/IMG_5539__largepreview__.webp",
-    bio: "After a decade of fruitful ministry in Texas, Clint Burns and his wife, Kat, felt called to plant Restore Church in Brookland, Arkansas, in 2016. Clint brings extensive experience to Nexus: Church Planting & Leader Care, having coached church planters since 2021 and serving on the board of the Arkansas Church Planting Network. As our Director of Coaching, Clint is passionate about equipping and empowering church planters and ministry leaders to fulfill the unique vision God has placed on their hearts. When he's not leading at Restore or coaching leaders, you'll find Clint enthusiastically cheering on his teenage son at the baseball field.",
+    bio: (
+      <>
+        After a decade of fruitful ministry in Texas, Clint Burns and his wife, Kat,
+        felt called to plant Restore Church in Brookland, Arkansas, in 2016. Clint
+        brings extensive experience to Nexus: Church Planting &amp; Leader Care, having
+        coached church planters since 2021 and serving on the board of the{" "}
+        <a href="https://acpn.network/" target="_blank" rel="noopener noreferrer">
+          Arkansas Church Planting Network
+        </a>
+        . As our Director of Coaching, Clint is passionate about equipping and
+        empowering church planters and ministry leaders to fulfill the unique vision God
+        has placed on their hearts. When he&rsquo;s not leading at Restore or coaching
+        leaders, you&rsquo;ll find Clint enthusiastically cheering on his teenage son at
+        the baseball field.
+      </>
+    ),
     email: "clint@nexus.us",
     facebook: "https://www.facebook.com/clint.burns.161",
   },
@@ -68,7 +91,30 @@ const TEAM: TeamMember[] = [
     name: "Andrew Estes",
     role: "Director of Training",
     photo: "/img/Andrew-Headshot-Color__largepreview__.webp",
-    bio: "Andrew’s role as the Director of Training here at Nexus comes after a decade of serving on multiple church staffs. He uses that experience to bring clarity and focus to the God-given mission inside every church planter and pastor. Andrew also serves churches and leaders nationwide through The Clarity Project as a Certified Navigator in the Church Unique, God Dreams, and Future Church processes and is a Life Coach & Master Trainer in the Younique personal vision journey. He also serves as the Visionary Planning Lead and Coach Vision Coach for the RunFree.Co and coaches teams in The 6 Types of Working Genius and the 4 Disciplines of Execution. Andrew lives in Loveland, CO, with his wife, Megan, and four children.",
+    bio: (
+      <>
+        Andrew&rsquo;s role as the Director of Training here at Nexus comes after a
+        decade of serving on multiple church staffs. He uses that experience to bring
+        clarity and focus to the God-given mission inside every church planter and
+        pastor. Andrew also serves churches and leaders nationwide through{" "}
+        <a href="https://visionclarity.org/" target="_blank" rel="noopener noreferrer">
+          The Clarity Project
+        </a>{" "}
+        as a Certified Navigator in the Church Unique, God Dreams, and Future Church
+        processes and is a Life Coach &amp; Master Trainer in the Younique personal
+        vision journey. He also serves as the Visionary Planning Lead and Coach Vision
+        Coach for the{" "}
+        <a href="https://runfree.co/" target="_blank" rel="noopener noreferrer">
+          RunFree.Co
+        </a>{" "}
+        and coaches teams in The 6 Types of Working Genius and the 4 Disciplines of
+        Execution. Andrew lives in Loveland, CO, with his wife,{" "}
+        <a href="https://onlylovetoday.com/" target="_blank" rel="noopener noreferrer">
+          Megan
+        </a>
+        , and four children.
+      </>
+    ),
     email: "andrew@nexus.us",
     linkedin: "https://www.linkedin.com/in/andrew-estes-a79b2240/",
     facebook: "https://www.facebook.com/andrewmestes",
@@ -111,13 +157,15 @@ const TEAM: TeamMember[] = [
 export default function AboutPage() {
   return (
     <>
+      {/* Live opens with a full-bleed photo header band carrying the page h1. */}
+      <ImageSection image="/img/IMG_0760-scaled-e1626296904348.jpeg" overlay="dark">
+        <h1 className="font-heading text-4xl font-bold sm:text-5xl">About Nexus</h1>
+      </ImageSection>
+
       <Section>
         <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
           <div>
-            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              About Nexus
-            </p>
-            <h1 className="font-heading text-3xl font-bold">Our Story</h1>
+            <h2 className="font-heading text-3xl font-bold">Our Story</h2>
             <p className="mt-4 text-primary">
               Over the past two decades, we have helped more than 80 church
               leaders plant life-giving, multiplying churches. Our goal is to
@@ -178,12 +226,14 @@ export default function AboutPage() {
 
       <Section>
         <SectionHeading>Our Values</SectionHeading>
-        <div className="mt-10">
-          <CardGrid cols={3}>
-            {VALUES.map((v) => (
-              <Card key={v.title} title={v.title} body={v.body} />
-            ))}
-          </CardGrid>
+        <div className="reveal reveal-stagger mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {VALUES.map((v) => (
+            <div key={v.title} className="flex flex-col">
+              <LazyYouTube id={v.video} title={`${v.title} — ${v.body}`} />
+              <h3 className="mt-4 font-heading text-xl font-semibold">{v.title}</h3>
+              <p className="mt-1 text-sm leading-relaxed opacity-80">{v.body}</p>
+            </div>
+          ))}
         </div>
       </Section>
 
@@ -216,6 +266,21 @@ export default function AboutPage() {
         <SectionHeading sub="We Are Here To Serve You.">Meet The Team</SectionHeading>
         <div className="mt-10">
           <TeamGrid members={TEAM} />
+        </div>
+      </Section>
+
+      <Section tone="accent" className="text-center">
+        <h2 className="font-heading text-3xl font-bold sm:text-4xl">
+          Plant Your Next Church <em className="not-italic">With Confidence</em>
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-white/85">
+          Together with Nexus, you&rsquo;ll plant a church today designed to leave a
+          lasting impact in your community tomorrow.
+        </p>
+        <div className="mt-8 flex justify-center">
+          <Button href="/contact-us" variant="light">
+            Contact Us
+          </Button>
         </div>
       </Section>
 

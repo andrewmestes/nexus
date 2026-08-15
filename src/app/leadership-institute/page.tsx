@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { Section, SectionHeading, Button, CardGrid, Card, Quote, ImageSection, TextureSection } from "@/components/ui";
 import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Nexus Leadership Institute",
   description:
     "A 2-year leadership cohort, in partnership with local churches, to mentor, train, and equip emerging leaders for a lifetime of ministry.",
-};
+  path: "/leadership-institute",
+});
 
 export default function LeadershipInstitutePage() {
   return (

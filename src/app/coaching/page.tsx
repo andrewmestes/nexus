@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
 import { TeamGrid, type TeamMember } from "@/components/team";
-import { CalledToPlantBand } from "@/components/shared-sections";
+import { CalledToPlantBand, NextStepsBand, PlantTheChurchBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Coaching",
   description:
     "Our coaches guide you through the highs and lows of launching a life-giving, multiplying church.",
-};
+  path: "/coaching",
+});
 
 const COACHES: TeamMember[] = [
   {
@@ -136,6 +138,13 @@ export default function CoachingPage() {
           </CardGrid>
         </div>
       </ImageSection>
+
+      <NextStepsBand
+        heading="Plant the Church God Placed in Your Heart"
+        sub="Together, we can provide the resources to make that dream a reality."
+      />
+
+      <PlantTheChurchBand />
 
       <CalledToPlantBand image="/img/Greg-Teaching-ThinkNEXT-e1624372694557__largepreview__.webp" />
     </>

@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { Section, SectionHeading, Button, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Get Involved",
   description:
     "Pray, provide, or participate — discover the ways you can partner with Nexus to plant churches and care for the leaders who guide them.",
-};
+  path: "/get-involved",
+});
 
 export default function GetInvolvedPage() {
   return (

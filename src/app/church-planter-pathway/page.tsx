@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
-import { CalledToPlantBand } from "@/components/shared-sections";
+import { CalledToPlantBand, NextStepsBand, PlantTheChurchBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Church Planter Pathway",
   description:
     "The Church Planter Pathway will help you plant a church today designed to leave a lasting impact in your community tomorrow.",
-};
+  path: "/church-planter-pathway",
+});
 
 export default function ChurchPlanterPathwayPage() {
   return (
@@ -43,14 +46,24 @@ export default function ChurchPlanterPathwayPage() {
             </div>
           </div>
           <blockquote className="rounded-[20px] bg-white/10 p-8">
-            <p className="font-heading text-lg italic">
+            <p className="font-heading text-lg font-semibold italic text-white/90">
+              Nexus Was That Extra Motivating Factor
+            </p>
+            <p className="mt-3 font-heading text-lg italic">
               &ldquo;(Nexus) was huge from day one! Just to have that ongoing
               partnership in ministry and that extra motivating factor to keep
               pressing on, to keep doing, to keep growing, to keep
               thinking.&rdquo;
             </p>
-            <footer className="mt-4 text-sm text-white/70">
-              Mike Moser, Lead Pastor – Connection Christian Church
+            <footer className="mt-5 flex items-center gap-4 text-sm text-white/70">
+              <Image
+                src="/img/Mike-Moser__mediumsquare__.webp"
+                alt=""
+                width={64}
+                height={64}
+                className="h-16 w-16 shrink-0 rounded-full object-cover"
+              />
+              <span>Mike Moser, Lead Pastor – Connection Christian Church</span>
             </footer>
           </blockquote>
         </div>
@@ -118,6 +131,13 @@ export default function ChurchPlanterPathwayPage() {
           </CardGrid>
         </div>
       </ImageSection>
+
+      <NextStepsBand
+        heading="Plant the Church God Placed in Your Heart"
+        sub="Together, we can provide the resources to make that dream a reality."
+      />
+
+      <PlantTheChurchBand />
 
       <CalledToPlantBand image="/img/Screen-Shot-2021-06-22-at-4.01.21-PM-e1624401191981.png" />
     </>

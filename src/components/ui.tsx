@@ -137,17 +137,36 @@ export function SectionHeading({
   sub,
   align = "center",
   as: Tag = "h2",
+  eyebrow,
+  rule = false,
+  light = false,
 }: {
   children: ReactNode;
   sub?: ReactNode;
   align?: "center" | "left";
   /** Use "h1" when this is a page's opening heading — every page needs exactly one. */
   as?: "h1" | "h2";
+  /** Small uppercase label above the heading. */
+  eyebrow?: string;
+  /** Short accent rule beneath the heading. */
+  rule?: boolean;
+  /** Use the lighter accent — for headings sitting on dark/photo backgrounds. */
+  light?: boolean;
 }) {
   const a = align === "center" ? "text-center mx-auto" : "text-left";
+  const ruleCls = rule
+    ? `rule-accent ${align === "center" ? "rule-center" : ""} ${light ? "rule-light" : ""}`
+    : "";
   return (
     <div className={`${a} max-w-3xl`}>
-      <Tag className="font-heading text-3xl font-bold sm:text-4xl">{children}</Tag>
+      {eyebrow && (
+        <p className={`eyebrow mb-3 ${light ? "text-accent-light" : "text-accent"}`}>
+          {eyebrow}
+        </p>
+      )}
+      <Tag className={`font-heading text-3xl font-bold sm:text-4xl ${ruleCls}`}>
+        {children}
+      </Tag>
       {sub && <p className="mt-4 text-lg opacity-80">{sub}</p>}
     </div>
   );
@@ -281,7 +300,9 @@ export function CardGrid({
     3: "sm:grid-cols-2 lg:grid-cols-3",
     4: "sm:grid-cols-2 lg:grid-cols-4",
   }[cols];
-  return <div className={`grid gap-8 ${c}`}>{children}</div>;
+  // `reveal reveal-stagger` makes the cards cascade in rather than snapping
+  // as one block once the grid scrolls into view.
+  return <div className={`reveal reveal-stagger grid gap-8 ${c}`}>{children}</div>;
 }
 
 export function Card({

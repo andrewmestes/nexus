@@ -48,18 +48,43 @@ const ORG_JSON_LD = {
   ],
 };
 
+const SITE_DESCRIPTION =
+  "Nexus is a church-planting organization built to help pastors and church leaders stand in the center of their calling and multiply disciples in their community and beyond.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nexus.us"),
   title: {
     default: "Nexus Church Planting & Leader Care",
     template: "%s | Nexus Church Planting & Leader Care",
   },
-  description:
-    "Nexus is a church-planting organization built to help pastors and church leaders stand in the center of their calling and multiply disciples in their community and beyond.",
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
   openGraph: {
+    title: "Nexus Church Planting & Leader Care",
+    description: SITE_DESCRIPTION,
+    url: "https://www.nexus.us/",
     siteName: "Nexus Church Planting & Leader Care",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Nexus Church Planting & Leader Care",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nexus Church Planting & Leader Care",
+    description: SITE_DESCRIPTION,
+    images: ["/opengraph-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
 };
 

@@ -7,6 +7,8 @@ const ROUTES = [
   { path: "/church-planter-pathway", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/assessment", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/training", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/aos", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "/thinknext", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/coaching", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/untangled", priority: 0.6, changeFrequency: "monthly" as const },

@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { Section, SectionHeading, Button, CardGrid, Card, Quote, ImageSection, TextureSection } from "@/components/ui";
 import { CalledToPlantBand } from "@/components/shared-sections";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Partner With Us",
   description:
     "Achieve your church-planting vision in your region and beyond — our partnership provides strategic guidance and peace of mind.",
-};
+  path: "/partner-with-us",
+});
 
 export default function PartnerWithUsPage() {
   return (

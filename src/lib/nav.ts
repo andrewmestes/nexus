@@ -12,6 +12,8 @@ export const NAV: NavItem[] = [
       { label: "Church Planter Pathway", href: "/church-planter-pathway" },
       { label: "Assessment", href: "/assessment" },
       { label: "Training", href: "/training" },
+      { label: "The Art of the Start", href: "/aos" },
+      { label: "ThinkNEXT Leadership Summit", href: "/thinknext" },
       { label: "Coaching", href: "/coaching" },
     ],
   },

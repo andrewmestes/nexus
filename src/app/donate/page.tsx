@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
 import { PCO, CONTACT } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Donate",
   description:
     "Your generosity goes directly toward planting new churches and caring for the leaders who guide them.",
-};
+  path: "/donate",
+});
 
 export default function DonatePage() {
   return (
@@ -70,6 +72,9 @@ export default function DonatePage() {
         <SectionHeading sub="Simple and secure. Give a single donation, or schedule a recurring donation using your checking account, credit card, or debit card.">
           Online Giving
         </SectionHeading>
+        <p className="mx-auto mt-4 max-w-2xl font-heading text-lg font-semibold text-accent">
+          With us, you can give with complete confidence.
+        </p>
         <div className="mt-6">
           <Button href={PCO.giving}>Give Now</Button>
         </div>
@@ -79,10 +84,18 @@ export default function DonatePage() {
         <SectionHeading>More Ways to Give</SectionHeading>
         <div className="mt-10">
           <CardGrid cols={2}>
-            <Card
-              title="Mail A Gift"
-              body={`Our mailing address for Nexus to receive checks is: ${CONTACT.orgName}, ${CONTACT.addressLine1}, ${CONTACT.addressLine2}`}
-            />
+            <Card title="Mail A Gift">
+              <div className="mt-3 flex-1 text-sm leading-relaxed opacity-80">
+                <p>Our mailing address for Nexus to receive checks is:</p>
+                <address className="mt-3 not-italic font-semibold">
+                  {CONTACT.orgName}
+                  <br />
+                  4100 W. ELDORADO PKWY STE 100,
+                  <br />
+                  #318 McKinney, TX 75070-4530
+                </address>
+              </div>
+            </Card>
             <Card
               title="Give Assets"
               body={`Contact us at ${CONTACT.email} with any questions about giving assets to Nexus.`}
@@ -95,13 +108,17 @@ export default function DonatePage() {
 
       <ImageSection image="/img/58384484_2310863282490919_88512717555499008_o-e1674497125285.webp" overlay="dark">
         <Quote
+          heading="Nexus Is Worthy of Our Support"
           quote="Nexus is a biblically grounded, culturally relevant, relationally wired, and financially wise visionary church planting mission. Nexus provides church planters with the freedom to have wings and the leader care to ensure successful plants. Nexus is worth our attention and worthy of our support."
           attribution="Mark Scott, Lead Minister – Park Plaza Christian Church"
+          image="/img/Mark-Scott-B10A2166-2x2-2021-EDITED-2048x2048-1-e1674497278269__mediumsquare__.webp"
         />
       </ImageSection>
 
       <Section>
-        <SectionHeading>Advancing the Gospel Together</SectionHeading>
+        <SectionHeading sub="Together, our work is making a kingdom impact.">
+          Advancing the Gospel Together
+        </SectionHeading>
         <div className="mt-10">
           <CardGrid cols={3}>
             <Card title="Planting Churches" body="Because of your generosity, the team at Nexus partners with church-planting leaders, helping them launch churches designed to multiply so that they impact their community and beyond." />

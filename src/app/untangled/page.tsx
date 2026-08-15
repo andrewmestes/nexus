@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeading, Button, CardGrid, ImageSection } from "@/components/ui";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Church-Planting Wives (Untangled)",
   description:
     "Untangled is a unique community designed for church-planting wives — a safe place to explore the daily challenges of living out your faith in ministry.",
-};
+  path: "/untangled",
+});
 
 const WEEKS = [
   { title: "Week 1", body: "Introductions / What is spiritual formation / Lectio Divina" },

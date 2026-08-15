@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { TextureSection, Button } from "@/components/ui";
 import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO, CONTACT } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact Us",
   description:
     "Looking to plant a church, partner with Nexus, or find coaching or training? Reach out and let us know how we can help.",
-};
+  path: "/contact-us",
+});
 
 export default function ContactUsPage() {
   return (
@@ -32,13 +34,14 @@ export default function ContactUsPage() {
           </a>
 
           <h2 className="mt-6 font-heading text-xl font-semibold">Mailing Address</h2>
-          <p className="mt-2 text-primary">
-            {CONTACT.orgName}
+          {/* Live spells the org with a colon in this block specifically. */}
+          <address className="mt-2 not-italic text-primary">
+            Nexus: Church Planting &amp; Leader Care
             <br />
             {CONTACT.addressLine1}
             <br />
             {CONTACT.addressLine2}
-          </p>
+          </address>
         </div>
       </TextureSection>
 

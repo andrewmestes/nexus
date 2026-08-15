@@ -1,9 +1,11 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 
 export type TeamMember = {
   name: string;
   role?: string;
-  bio?: string;
+  /** ReactNode so bios can carry the inline links the live site has. */
+  bio?: ReactNode;
   photo: string;
   email?: string;
   facebook?: string;
@@ -31,7 +33,9 @@ export function TeamGrid({ members }: { members: TeamMember[] }) {
               </p>
             )}
             {m.bio && (
-              <p className="mt-2 text-sm leading-relaxed opacity-80">{m.bio}</p>
+              <p className="mt-2 text-sm leading-relaxed opacity-80 [&_a]:font-semibold [&_a]:text-accent [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-accent-dark">
+                {m.bio}
+              </p>
             )}
             <div className="mt-2 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide text-accent">
               {m.email && <a href={`mailto:${m.email}`}>Email</a>}

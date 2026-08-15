@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero, Section, SectionHeading, Button, ButtonRow, Quote, CardGrid, ImageSection } from "@/components/ui";
 import { CalledToPlantBand } from "@/components/shared-sections";
 import { TIDYCAL_DISCOVERY, VISION_CLARITY } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "The Clarity Project",
   description:
     "Lead with confidence. Align your team. Multiply your Kingdom impact. The Clarity Project helps ministry and marketplace leaders cut through the noise.",
-};
+  path: "/the-clarity-project",
+});
 
 const PATHS = [
   {

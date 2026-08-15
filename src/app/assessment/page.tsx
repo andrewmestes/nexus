@@ -1,22 +1,27 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
-import { CalledToPlantBand } from "@/components/shared-sections";
+import { CalledToPlantBand, NextStepsBand, PlantTheChurchBand } from "@/components/shared-sections";
 import { PCO } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Assessment",
   description:
     "The Nexus Assessment Center is designed to help pastors and church leaders determine their readiness to plant.",
-};
+  path: "/assessment",
+});
 
 export default function AssessmentPage() {
   return (
     <>
+      <ImageSection image="/img/assessment_nexus-church-planting__largepreview__.webp" overlay="dark">
+        <h1 className="font-heading text-4xl font-bold sm:text-5xl">
+          Church Planter Assessment
+        </h1>
+      </ImageSection>
+
       <TextureSection>
-        <SectionHeading
-          as="h1"
-          sub="The Nexus Assessment Center is designed to help pastors and church leaders determine their readiness to plant."
-        >
+        <SectionHeading sub="The Nexus Assessment Center is designed to help pastors and church leaders determine their readiness to plant.">
           Helping Pastors and Leaders Prepare for the Church Planting Process
         </SectionHeading>
       </TextureSection>
@@ -25,6 +30,9 @@ export default function AssessmentPage() {
         <SectionHeading sub="That's why we're here — to equip pastors and church leaders to multiply Kingdom impact in everything they do. Our team will determine your readiness, position you to avoid the pitfalls of church planting, and set you up for long-term success.">
           Plant a Life-Giving, Multiplying Church
         </SectionHeading>
+        <p className="mx-auto mt-5 max-w-2xl text-center font-heading text-xl font-semibold">
+          Healthy churches thrive through healthy leaders.
+        </p>
         <div className="mt-10">
           <CardGrid cols={2}>
             <Card title="Hi, I'm a Leader Looking to Plant." href={PCO.interestForm} cta="Start Your Journey" />
@@ -105,6 +113,13 @@ export default function AssessmentPage() {
           </CardGrid>
         </div>
       </ImageSection>
+
+      <NextStepsBand
+        heading="Plant the Church God Placed in Your Heart"
+        sub="Together, we can provide the resources to make that dream a reality."
+      />
+
+      <PlantTheChurchBand />
 
       <CalledToPlantBand image="/img/Greg-Teaching-ThinkNEXT-e1624372694557__largepreview__.webp" />
     </>

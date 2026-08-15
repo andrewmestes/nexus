@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeading, CardGrid, Card, VideoCard, ImageSection, TextureSection } from "@/components/ui";
 import { CalledToPlantBand } from "@/components/shared-sections";
 import { PCO, SOCIAL } from "@/lib/links";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Training Resources",
   description:
     "On demand resources — videos, books, and podcasts — to help church leaders multiply their Kingdom impact.",
-};
+  path: "/resources",
+});
 
 const TRAINING_VIDEOS = [
   { id: "142DzDT0T6g", title: "Vision Frame Overview Pt. 1", handout: "/docs/vision-frame-overview-cheat-sheet.pdf", body: "Introduction to the Vision Frame. Critical training on how to develop your visionary language for your church plant." },
