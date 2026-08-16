@@ -3,6 +3,7 @@ import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeading, Button, ButtonRow, Quote, Card, CardGrid, ImageSection, TextureSection, VideoPlayer } from "@/components/ui";
 import { CalledToPlantBand } from "@/components/shared-sections";
+import { IconPillars } from "@/components/pillars";
 import { PCO } from "@/lib/links";
 
 export const metadata: Metadata = pageMetadata({
@@ -53,11 +54,14 @@ export default function HomePage() {
 
       {/* 3 pillars over photo background */}
       <ImageSection image="/img/Screen-Shot-2022-06-14-at-11.36.06-AM__largepreview__.webp" className="text-center">
-        <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-lg font-heading font-semibold">
-          <span>Plant Thriving Churches</span>
-          <span>Receive Long-Term Leader Care</span>
-          <span>Multiply Kingdom Impact</span>
-        </div>
+        <IconPillars
+          light
+          items={[
+            { label: "Plant Thriving Churches", icon: "leaf" },
+            { label: "Receive Long-Term Leader Care", icon: "hand-holding-heart" },
+            { label: "Multiply Kingdom Impact", icon: "globe" },
+          ]}
+        />
       </ImageSection>
 
       <Section>

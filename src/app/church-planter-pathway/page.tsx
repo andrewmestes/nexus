@@ -3,6 +3,7 @@ import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
 import { CalledToPlantBand, NextStepsBand, PlantTheChurchBand } from "@/components/shared-sections";
+import { IconPillars } from "@/components/pillars";
 import { PCO } from "@/lib/links";
 
 export const metadata: Metadata = pageMetadata({
@@ -88,11 +89,13 @@ export default function ChurchPlanterPathwayPage() {
       </TextureSection>
 
       <Section className="text-center">
-        <div className="flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm font-semibold uppercase tracking-wide text-accent">
-          <span>Stand in the Center of Your Calling</span>
-          <span>Launch Your Church With Confidence</span>
-          <span>Work With a Trusted Partner</span>
-        </div>
+        <IconPillars
+          items={[
+            { label: "Stand in the Center of Your Calling", icon: "compass" },
+            { label: "Launch Your Church With Confidence", icon: "leaf" },
+            { label: "Work With a Trusted Partner", icon: "user-group" },
+          ]}
+        />
       </Section>
 
       <ImageSection image="/img/adrianna-geo-x7oJQcDgtLg-unsplash-scaled-e1674496787377__largepreview__.webp" overlay="dark">

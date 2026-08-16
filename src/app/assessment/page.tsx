@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
 import { CalledToPlantBand, NextStepsBand, PlantTheChurchBand } from "@/components/shared-sections";
+import { IconPillars } from "@/components/pillars";
 import { PCO } from "@/lib/links";
 
 export const metadata: Metadata = pageMetadata({
@@ -78,11 +79,13 @@ export default function AssessmentPage() {
       </Section>
 
       <Section className="text-center">
-        <div className="flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm font-semibold uppercase tracking-wide text-accent">
-          <span>Determine Your Emotional Preparedness</span>
-          <span>Pursue Your Unique Vision</span>
-          <span>Understand God&rsquo;s Plan For You</span>
-        </div>
+        <IconPillars
+          items={[
+            { label: "Determine Your Emotional Preparedness", icon: "heart" },
+            { label: "Pursue Your Unique Vision", icon: "compass" },
+            { label: "Understand God\u2019s Plan For You", icon: "circle-arrow-right" },
+          ]}
+        />
       </Section>
 
       <ImageSection image="/img/Q7A2553-scaled-e1674764647470__largepreview__.webp" overlay="dark">

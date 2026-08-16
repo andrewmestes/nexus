@@ -3,6 +3,7 @@ import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeading, Button, Quote, CardGrid, Card, ImageSection, TextureSection } from "@/components/ui";
 import { CalledToPlantBand, NextStepsBand, PlantTheChurchBand } from "@/components/shared-sections";
+import { IconPillars } from "@/components/pillars";
 import { PCO } from "@/lib/links";
 
 export const metadata: Metadata = pageMetadata({
@@ -130,11 +131,13 @@ export default function TrainingPage() {
       )}
 
       <Section className="text-center">
-        <div className="flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm font-semibold uppercase tracking-wide text-accent">
-          <span>Grow As a Leader</span>
-          <span>Clarify Your Vision</span>
-          <span>Focus Your Attention On God</span>
-        </div>
+        <IconPillars
+          items={[
+            { label: "Grow As a Leader", icon: "user-group" },
+            { label: "Clarify Your Vision", icon: "eye" },
+            { label: "Focus Your Attention On God", icon: "heart" },
+          ]}
+        />
         <Quote
           heading="This Process is a Godsend"
           quote="Church leaders get distracted often with the rigors of doing ministry. This process is a Godsend and has kept us accountable to the vision God has for our church."

@@ -74,10 +74,13 @@ export const FEATURED_EPISODES: FeaturedEpisode[] = [
 
 export const ARCHIVE_EPISODES: ArchiveEpisode[] = [
   {
+    youtubeId: "vYBpTC9D9dc",
     title: "18 Matthew Efird | Practical Support for Grieving Families",
     date: "2026-07-29",
     description:
       "In this heartfelt interview, Matthew Efird shares his profound journey through the loss of his son Noah, offering insights on grief, faith, and how to support others in their darkest moments.",
+    appleUrl:
+      "https://podcasts.apple.com/us/podcast/nexus-church-planting-podcast/id1838803043",
     image: "/img/YouTube-Thumbnail-Podcast-Matthew-Efird__landscape__.webp",
   },
   {
